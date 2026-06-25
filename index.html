@@ -1920,16 +1920,13 @@ footer {
   .section-intro .work-intro-list li { position: relative; padding-left: 1.4rem; font-size: 1.05rem; color: var(--text); font-weight: 300; }
   .section-intro .work-intro-list li::before { content: '\2014'; position: absolute; left: 0; color: var(--ember); }
   .section-intro .intro-foot { display: block; margin-top: 1.1rem; padding-top: 0.85rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--text-faint); font-style: italic; }
-  /* Edit: center incomplete thumbnail rows (no empty cells) */
-  .product-thumbs { display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; }
-  .product-thumbs .product-thumb { flex: 0 0 calc(33.333% - 4px); }
   /* Edit: blurred backdrop fills letterbox bars for any photo orientation */
   .pi-slide { background-size: cover; background-position: center; }
   .pi-slide::before {
     content: ''; position: absolute; inset: 0;
     background-image: inherit; background-size: cover; background-position: center;
-    filter: blur(24px) brightness(0.4) saturate(1.05);
-    transform: scale(1.2); z-index: 0;
+    filter: blur(18px) brightness(0.7) saturate(1.15);
+    transform: scale(1.25); z-index: 0;
   }
   .pi-slide img { position: relative; z-index: 1; }
   /* Edit: prominent ember "Замовити" button, centered */
@@ -1957,6 +1954,11 @@ footer {
   /* Edit 14: three videos in one row */
   .swords-video-grid { grid-template-columns: 1fr 1fr 1fr; }
   @media (max-width: 760px) { .swords-video-grid { grid-template-columns: 1fr; } }
+  /* Edit: master photo in bio */
+  .about-photo { position: sticky; top: 100px; }
+  .about-photo img { width: 100%; display: block; border: 1px solid var(--line-bright); border-radius: 3px; box-shadow: 0 12px 44px -14px rgba(0,0,0,0.75); }
+  .about-photo-cap { display: block; margin-top: 0.7rem; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint); }
+  @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr !important; } .about-photo { position: static; margin-top: 1rem; } }
 </style>
 </head>
 <body>
@@ -2039,7 +2041,7 @@ footer {
 <section class="about" id="about" data-bg-scene="2" style="padding: 4rem 2.5rem;">
 
   <div class="container">
-    <div class="about-grid" style="grid-template-columns:1fr; max-width:760px;">
+    <div class="about-grid" style="grid-template-columns:1.15fr 0.85fr; max-width:1100px; gap:4rem;">
       <div class="about-text">
         <div class="eyebrow"><span data-i18n="about_label">Майстер</span></div>
         <h2 data-i18n="about_title">Андрій <strong>Струневич</strong></h2>
@@ -2061,6 +2063,10 @@ footer {
             <div class="stat-label" data-i18n="stat_passion">Майстер на виріб</div>
           </div>
         </div>
+      </div>
+      <div class="about-photo">
+        <img loading="lazy" decoding="async" src="images/master.jpg" alt="Андрій Струневич — майстер кузні VIY">
+        <span class="about-photo-cap">Кадр із BBC World News</span>
       </div>
     </div>
   </div>
@@ -2097,7 +2103,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img010.webp')"><img loading="lazy" decoding="async" src="images/img010.webp" alt="Ніж тактичний «Хорнет»" data-lightbox="hornet"></div>
             <div class="pi-slide" style="background-image:url('images/img011.webp')"><img loading="lazy" decoding="async" src="images/img011.webp" alt="Ніж тактичний «Хорнет»" data-lightbox="hornet"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img012.webp" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img013.webp" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img014.webp" alt=""></div>
@@ -2130,7 +2136,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img016.webp')"><img loading="lazy" decoding="async" src="images/img016.webp" alt="Ніж «Пумба»" data-lightbox="pumba"></div>
             <div class="pi-slide" style="background-image:url('images/img017.webp')"><img loading="lazy" decoding="async" src="images/img017.webp" alt="Ніж «Пумба»" data-lightbox="pumba"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img018.webp" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img019.webp" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img020.webp" alt=""></div>
@@ -2157,7 +2163,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img022.webp')"><img loading="lazy" decoding="async" src="images/img022.webp" alt="Ніж «Тичковий»" data-lightbox="tychkovy"></div>
             <div class="pi-slide" style="background-image:url('images/img023.webp')"><img loading="lazy" decoding="async" src="images/img023.webp" alt="Ніж «Тичковий»" data-lightbox="tychkovy"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img024.webp" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img025.webp" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img026.webp" alt=""></div>
@@ -2188,7 +2194,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img028.webp')"><img loading="lazy" decoding="async" src="images/img028.webp" alt="Ніж «Дикий»" data-lightbox="dyky"></div>
             <div class="pi-slide" style="background-image:url('images/img029.webp')"><img loading="lazy" decoding="async" src="images/img029.webp" alt="Ніж «Дикий»" data-lightbox="dyky"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img030.webp" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img031.webp" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img032.webp" alt=""></div>
@@ -2219,7 +2225,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img034.webp')"><img loading="lazy" decoding="async" src="images/img034.webp" alt="Кинджал «Гном»" data-lightbox="gnom"></div>
             <div class="pi-slide" style="background-image:url('images/img035.webp')"><img loading="lazy" decoding="async" src="images/img035.webp" alt="Кинджал «Гном»" data-lightbox="gnom"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img036.webp" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img037.webp" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img038.webp" alt=""></div>
@@ -2248,7 +2254,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img040.webp')"><img loading="lazy" decoding="async" src="images/img040.webp" alt="Ніж «Польовий»" data-lightbox="polovyy"></div>
             <div class="pi-slide" style="background-image:url('images/img041.webp')"><img loading="lazy" decoding="async" src="images/img041.webp" alt="Ніж «Польовий»" data-lightbox="polovyy"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img042.webp" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img043.webp" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img044.webp" alt=""></div>
@@ -2298,7 +2304,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img047.jpg')"><img loading="lazy" decoding="async" src="images/img047.jpg" alt="Шабля «Модель 1»"></div>
             <div class="pi-slide" style="background-image:url('images/img048.jpg')"><img loading="lazy" decoding="async" src="images/img048.jpg" alt="Шабля «Модель 1»"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(4, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img049.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img050.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img051.jpg" alt=""></div>
@@ -2337,7 +2343,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img057.jpg')"><img loading="lazy" decoding="async" src="images/img057.jpg" alt="Шабля «Модель 2»"></div>
             <div class="pi-slide" style="background-image:url('images/img058.jpg')"><img loading="lazy" decoding="async" src="images/img058.jpg" alt="Шабля «Модель 2»"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img059.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img060.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img061.jpg" alt=""></div>
@@ -2376,7 +2382,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img067.jpg')"><img loading="lazy" decoding="async" src="images/img067.jpg" alt="Шабля «Модель 3»"></div>
             <div class="pi-slide" style="background-image:url('images/img068.jpg')"><img loading="lazy" decoding="async" src="images/img068.jpg" alt="Шабля «Модель 3»"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(4, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img069.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img070.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img071.jpg" alt=""></div>
@@ -2413,7 +2419,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img076.jpg')"><img loading="lazy" decoding="async" src="images/img076.jpg" alt="Шабля «Модель 4»"></div>
             <div class="pi-slide" style="background-image:url('images/img077.jpg')"><img loading="lazy" decoding="async" src="images/img077.jpg" alt="Шабля «Модель 4»"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(5, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img078.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img079.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img080.jpg" alt=""></div>
@@ -2452,7 +2458,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img087.jpg')"><img loading="lazy" decoding="async" src="images/img087.jpg" alt="Шабля «Модель 4.1»"></div>
             <div class="pi-slide" style="background-image:url('images/img088.jpg')"><img loading="lazy" decoding="async" src="images/img088.jpg" alt="Шабля «Модель 4.1»"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img089.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img090.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img091.jpg" alt=""></div>
@@ -2498,7 +2504,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img121.jpg')"><img loading="lazy" decoding="async" src="images/img121.jpg" alt="Меч «Модель 1»"></div>
             <div class="pi-slide" style="background-image:url('images/img123.jpg')"><img loading="lazy" decoding="async" src="images/img123.jpg" alt="Меч «Модель 1»"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(3, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img114.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img116.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img118.jpg" alt=""></div>
@@ -2525,7 +2531,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img129.jpg')"><img loading="lazy" decoding="async" src="images/img129.jpg" alt="Катана"></div>
             <div class="pi-slide" style="background-image:url('images/img131.jpg')"><img loading="lazy" decoding="async" src="images/img131.jpg" alt="Катана"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(4, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img126.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img128.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img130.jpg" alt=""></div>
@@ -2550,7 +2556,7 @@ footer {
             <div class="pi-slide" style="background-image:url('images/img137.jpg')"><img loading="lazy" decoding="async" src="images/img137.jpg" alt="Меч «Модель 2»"></div>
             <div class="pi-slide" style="background-image:url('images/img139.jpg')"><img loading="lazy" decoding="async" src="images/img139.jpg" alt="Меч «Модель 2»"></div>
           </div>
-          <div class="product-thumbs">
+          <div class="product-thumbs" style="grid-template-columns: repeat(4, 1fr)">
             <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img134.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img136.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img138.jpg" alt=""></div>
@@ -2585,7 +2591,6 @@ footer {
           <div class="eyebrow"><span data-i18n="swords_label">Мечі</span></div>
           <h2 data-i18n="swords_title">Мистецтво <strong>меча</strong></h2>
         </div>
-        <p class="section-intro" data-i18n="swords_intro">Меч — це більше, ніж зброя: статус, історія та данина майстрам минулого.</p>
       </div>
     </div>
 
