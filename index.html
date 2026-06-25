@@ -1956,7 +1956,7 @@ footer {
   @media (max-width: 760px) { .swords-video-grid { grid-template-columns: 1fr; } }
   /* Edit: master photo in bio */
   .about-right { display: flex; flex-direction: column; gap: 1.75rem; justify-content: flex-start; }
-  .about-right .about-stats { margin: 0; }
+  .about-right .about-stats { margin: 0 5% 0 auto; width: fit-content; }
   .about-photo { position: relative; }
   .about-photo img { width: 100%; height: auto; display: block; border: none;
     -webkit-mask-image: radial-gradient(ellipse 74% 94% at 50% 50%, #000 50%, transparent 100%);
@@ -2005,14 +2005,13 @@ footer {
   .work-direction { justify-content: flex-start; }
   /* Edit: about block full width, photo far right, text stretched */
   .about .container { max-width: none !important; }
-  .about-grid { width: 100% !important; max-width: none !important; align-items: stretch !important; }
-  .about-text { display: flex; flex-direction: column; justify-content: space-between; }
+  .about-grid { width: 100% !important; max-width: none !important; align-items: start !important; }
   .about-right { display: flex; flex-direction: column; gap: 1.75rem; }
-  .about-right .about-stats { margin: 0; }
+  .about-right .about-stats { margin: 0 5% 0 auto; width: fit-content; }
   .about-photo { position: relative; }
-  .about-photo img { width: 100%; height: auto; display: block; border: none;
-    -webkit-mask-image: radial-gradient(ellipse 80% 96% at 50% 50%, #000 60%, transparent 100%);
-    mask-image: radial-gradient(ellipse 80% 96% at 50% 50%, #000 60%, transparent 100%); }
+  .about-photo img { width: 75%; height: auto; display: block; margin-left: auto; margin-right: 5%; border: none;
+    -webkit-mask-image: radial-gradient(ellipse 74% 94% at 50% 50%, #000 52%, transparent 100%);
+    mask-image: radial-gradient(ellipse 74% 94% at 50% 50%, #000 52%, transparent 100%); }
 </style>
 </head>
 <body>
