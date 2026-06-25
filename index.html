@@ -1955,13 +1955,13 @@ footer {
   .swords-video-grid { grid-template-columns: 1fr 1fr 1fr; }
   @media (max-width: 760px) { .swords-video-grid { grid-template-columns: 1fr; } }
   /* Edit: master photo in bio */
-  .about-photo { position: static; }
-  .about-photo img { width: 100%; height: auto; display: block; border: none; border-radius: 2px;
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 13%, #000 87%, transparent), linear-gradient(to bottom, transparent, #000 13%, #000 87%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(to right, transparent, #000 13%, #000 87%, transparent), linear-gradient(to bottom, transparent, #000 13%, #000 87%, transparent);
-    mask-composite: intersect; }
-  @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr !important; } .about-photo { position: static; margin-top: 1rem; } }
+  .about-right { display: flex; flex-direction: column; gap: 1.75rem; }
+  .about-right .about-stats { margin: 0; }
+  .about-photo { position: relative; }
+  .about-photo img { width: 100%; height: auto; display: block; border: none;
+    -webkit-mask-image: radial-gradient(ellipse 80% 82% at 50% 50%, #000 56%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 82% at 50% 50%, #000 56%, transparent 100%); }
+  @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr !important; } .about-photo { position: static; margin-top: 1rem; height: auto; min-height: 0; } .about-photo img { height: auto; } }
   /* Edit: info cards size to content, smaller */
   .info-grid { align-items: start; }
   .info-card { padding: 1.6rem 1.5rem; }
@@ -1994,6 +1994,11 @@ footer {
   .gallery-videos { max-width: 820px; margin: 1.5rem auto; }
   /* Edit: more compact gallery CTA */
   .gallery-cta { padding: 1.6rem 2rem !important; }
+  /* Edit: align title (left) and description (right) on one line, right-align the right text */
+  .work-category-head { align-items: center !important; }
+  .work-category-desc { text-align: right; }
+  .section-head-row { align-items: center; }
+  .section-head-row .section-intro { text-align: right; }
 </style>
 </head>
 <body>
@@ -2076,7 +2081,7 @@ footer {
 <section class="about" id="about" data-bg-scene="2" style="padding: 4rem 2.5rem;">
 
   <div class="container">
-    <div class="about-grid" style="grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
+    <div class="about-grid" style="grid-template-columns:1.3fr 0.95fr; gap:4rem; align-items:start;">
       <div class="about-text">
         <div class="eyebrow"><span data-i18n="about_label">Майстер</span></div>
         <h2 data-i18n="about_title">Андрій <strong>Струневич</strong></h2>
@@ -2084,6 +2089,11 @@ footer {
         <p data-i18n="about_p2">Так народилося моє нове хобі — кузня. Вона стала моїм вікном у тишу: приїздив у село, гудів горн, грілася сталь — і світ заспокоювався.</p>
         <p data-i18n="about_p3">У 2014-му все змінилося — змінив бізнес на мультикам. Після служби довго не міг повернутися до звичайного життя. <strong>Кузня стала тим, що повертало бажання жити</strong>, вчитися, робити.</p>
         <p data-i18n="about_p4">Сьогодні володію знаннями, які дозволяють виготовити вироби будь-якої форми, конфігурації та конструкції. Буду радий викувати вашу <strong>сталеву мрію</strong>.</p>
+      </div>
+      <div class="about-right">
+        <div class="about-photo">
+          <img loading="lazy" decoding="async" src="images/master.jpg" alt="Андрій Струневич — майстер кузні VIY">
+        </div>
         <div class="about-stats">
           <div>
             <div class="stat-num">20+</div>
@@ -2098,9 +2108,6 @@ footer {
             <div class="stat-label" data-i18n="stat_passion">Майстер на виріб</div>
           </div>
         </div>
-      </div>
-      <div class="about-photo">
-        <img loading="lazy" decoding="async" src="images/master.jpg" alt="Андрій Струневич — майстер кузні VIY">
       </div>
     </div>
   </div>
