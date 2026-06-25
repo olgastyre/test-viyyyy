@@ -1913,13 +1913,13 @@ footer {
   .section-head-row, .work-category-head { grid-template-columns: max-content minmax(300px, 1fr); }
   @media (max-width: 768px) { .section-head-row, .work-category-head { grid-template-columns: 1fr; } }
   /* Work header: balanced equal columns, vertically centered */
-  #work .section-head-row { grid-template-columns: 1fr 1fr; align-items: center; gap: 3.5rem; }
+  #work .section-head-row { grid-template-columns: 1fr 1fr; align-items: start; gap: 3.5rem; }
   @media (max-width: 768px) { #work .section-head-row { grid-template-columns: 1fr; align-items: start; } }
   /* === Edit: work intro as clean list + footnote === */
   .section-intro .work-intro-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
   .section-intro .work-intro-list li { position: relative; padding-left: 1.4rem; font-size: 1.05rem; color: var(--text); font-weight: 300; }
   .section-intro .work-intro-list li::before { content: '\2014'; position: absolute; left: 0; color: var(--ember); }
-  .section-intro .intro-foot { display: block; margin-top: 1.1rem; padding-top: 0.85rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--text-faint); font-style: italic; }
+  .section-intro .intro-foot { display: block; margin-top: 1.1rem; padding-top: 0.85rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--text-dim); }
   /* Edit: blurred backdrop fills letterbox bars for any photo orientation */
   .pi-slide { background-size: cover; background-position: center; }
   .pi-slide::before {
@@ -1956,9 +1956,35 @@ footer {
   @media (max-width: 760px) { .swords-video-grid { grid-template-columns: 1fr; } }
   /* Edit: master photo in bio */
   .about-photo { position: sticky; top: 100px; }
-  .about-photo img { width: 100%; display: block; border: 1px solid var(--line-bright); border-radius: 3px; box-shadow: 0 12px 44px -14px rgba(0,0,0,0.75); }
-  .about-photo-cap { display: block; margin-top: 0.7rem; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint); }
+  .about-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 35%; display: block; border: none; border-radius: 2px;
+    -webkit-mask-image: radial-gradient(ellipse 92% 92% at 50% 50%, #000 68%, transparent 100%);
+    mask-image: radial-gradient(ellipse 92% 92% at 50% 50%, #000 68%, transparent 100%); }
   @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr !important; } .about-photo { position: static; margin-top: 1rem; } }
+  /* Edit: info cards size to content, smaller */
+  .info-grid { align-items: start; }
+  .info-card { padding: 1.6rem 1.5rem; }
+  .info-card h3 { margin-bottom: 0.6rem; }
+  .info-card p { margin-bottom: 0; }
+  /* Edit: gallery categories 5 per row, smaller (even 5x2) */
+  .gallery-categories { grid-template-columns: repeat(5, 1fr); }
+  .gallery-category { min-height: 86px; padding: 1.1rem 0.8rem; gap: 0.55rem; }
+  .gallery-category-icon { width: 34px; height: 34px; }
+  @media (max-width: 900px) { .gallery-categories { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .gallery-categories { grid-template-columns: repeat(2, 1fr); } }
+  /* Edit: youtube video previews in gallery */
+  .gallery-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .gallery-video { position: relative; display: block; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--line); border-radius: 2px; }
+  .gallery-video img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .gallery-video::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.22); transition: background 0.3s ease; }
+  .gallery-video:hover img { transform: scale(1.05); }
+  .gallery-video:hover::after { background: rgba(0,0,0,0.1); }
+  .gallery-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 62px; height: 62px; border-radius: 50%; background: rgba(168,122,74,0.92); z-index: 1; transition: transform 0.3s ease; }
+  .gallery-video-play::before { content: ''; position: absolute; top: 50%; left: 54%; transform: translate(-50%,-50%); border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent #140d03; }
+  .gallery-video:hover .gallery-video-play { transform: translate(-50%,-50%) scale(1.1); }
+  @media (max-width: 600px) { .gallery-videos { grid-template-columns: 1fr; } }
+  /* Edit: product images fill proportionally (cover), no backdrop/letterbox */
+  .pi-slide img { object-fit: cover !important; padding: 0 !important; }
+  .pi-slide::before { display: none !important; }
 </style>
 </head>
 <body>
@@ -2041,7 +2067,7 @@ footer {
 <section class="about" id="about" data-bg-scene="2" style="padding: 4rem 2.5rem;">
 
   <div class="container">
-    <div class="about-grid" style="grid-template-columns:1.15fr 0.85fr; max-width:1100px; gap:4rem;">
+    <div class="about-grid" style="grid-template-columns:1.1fr 0.9fr; gap:4rem;">
       <div class="about-text">
         <div class="eyebrow"><span data-i18n="about_label">Майстер</span></div>
         <h2 data-i18n="about_title">Андрій <strong>Струневич</strong></h2>
@@ -2066,7 +2092,6 @@ footer {
       </div>
       <div class="about-photo">
         <img loading="lazy" decoding="async" src="images/master.jpg" alt="Андрій Струневич — майстер кузні VIY">
-        <span class="about-photo-cap">Кадр із BBC World News</span>
       </div>
     </div>
   </div>
@@ -2629,6 +2654,17 @@ footer {
       </div>
     </div>
 
+    <div class="gallery-videos">
+      <a href="https://www.youtube.com/watch?v=8X9kN_moHIQ" target="_blank" rel="noopener" class="gallery-video">
+        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/8X9kN_moHIQ/hqdefault.jpg" alt="">
+        <span class="gallery-video-play"></span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=r-lYpc8rdLU" target="_blank" rel="noopener" class="gallery-video">
+        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/r-lYpc8rdLU/hqdefault.jpg" alt="">
+        <span class="gallery-video-play"></span>
+      </a>
+    </div>
+
     <a href="https://www.facebook.com/blacksmithviy/photos_albums" target="_blank" rel="noopener" class="gallery-cta">
       <div class="gallery-cta-inner">
         <div class="gallery-cta-text">
@@ -2847,15 +2883,13 @@ footer {
       <div class="info-card">
         <div class="label" data-i18n="payment_label">Оплата</div>
         <h3 data-i18n="payment_title">Оплата</h3>
-        <p data-i18n="payment_text">Деталі про форми та умови оплати будуть додані найближчим часом.</p>
-        
+        <p data-i18n="payment_text">Передплата за індивідуальні замовлення, повна оплата — за готові вироби. Зручний спосіб оплати обговорюємо особисто.</p>
       </div>
 
       <div class="info-card">
         <div class="label" data-i18n="delivery_label">Доставка</div>
         <h3 data-i18n="delivery_title">Україна, Польща, світ</h3>
         <p data-i18n="delivery_text">Здійснюю відправку по Україні, Польщі та світу. Усі вироби ретельно пакуються для безпечного транспортування.</p>
-        <div class="note" data-i18n="delivery_note">Деталі про служби доставки та терміни будуть додані найближчим часом.</div>
       </div>
     </div>
   </div>
@@ -3040,7 +3074,7 @@ document.addEventListener("DOMContentLoaded", function() {
       step_4_title: "Доставка", step_4_text: "Готовий виріб — фото, відео, остаточна оплата та відправка вам.",
       info_label: "Умови", info_title: "Оплата та <strong>доставка</strong>",
       payment_label: "Оплата", payment_title: "Оплата",
-      payment_text: "Деталі про форми та умови оплати будуть додані найближчим часом.",
+      payment_text: "Передплата за індивідуальні замовлення, повна оплата — за готові вироби. Зручний спосіб оплати обговорюємо особисто.",
       
       delivery_label: "Доставка", delivery_title: "Україна, Польща, світ",
       delivery_text: "Здійснюю відправку по Україні, Польщі та світу. Усі вироби ретельно пакуються для безпечного транспортування.",
