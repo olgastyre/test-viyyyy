@@ -362,7 +362,7 @@
   }
 
   /* ============== SECTIONS ============== */
-  section { padding: 7rem 2.5rem; position: relative; }
+  section { padding: 4.5rem 2.5rem; position: relative; }
   .container { max-width: var(--container); margin: 0 auto; }
 
   .section-head { margin-bottom: 4rem; }
@@ -1950,6 +1950,13 @@ footer {
     background: linear-gradient(135deg, #d49a5e 0%, #b98a58 50%, #9a6e44 100%);
     color: #140d03 !important; border-color: transparent;
   }
+  /* Edit 13: swords intro text in two balanced columns */
+  .swords-intro-text { max-width: 100% !important; column-count: 2; column-gap: 4rem; }
+  .swords-intro-text p { break-inside: avoid; }
+  @media (max-width: 760px) { .swords-intro-text { column-count: 1; } }
+  /* Edit 14: three videos in one row */
+  .swords-video-grid { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 760px) { .swords-video-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -2590,11 +2597,14 @@ footer {
     </div>
 
     <div class="swords-video-grid">
-      <video class="swords-video" controls preload="metadata" playsinline>
+      <video class="swords-video" controls muted preload="metadata" playsinline>
         <source src="media/sword-forging-1.mp4" type="video/mp4">
       </video>
-      <video class="swords-video" controls preload="metadata" playsinline>
+      <video class="swords-video" controls muted preload="metadata" playsinline>
         <source src="media/sword-forging-2.mp4" type="video/mp4">
+      </video>
+      <video class="swords-video" controls muted preload="metadata" playsinline>
+        <source src="media/sword-forging-3.mp4" type="video/mp4">
       </video>
     </div>
 
