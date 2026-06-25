@@ -292,21 +292,26 @@
 
   /* ============== BUTTONS ============== */
   .btn {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    padding: 0.95rem 1.75rem;
+    display: inline-flex; align-items: center; gap: 0.65rem;
+    padding: 1.05rem 2.1rem;
     font-family: var(--font);
-    font-size: 0.78rem; letter-spacing: 0.05em;
+    font-size: 0.82rem; letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
-    border: 1px solid var(--text);
-    background: var(--text);
-    color: var(--bg);
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: linear-gradient(135deg, #c08a52 0%, #a87a4a 50%, #8a6038 100%);
+    color: #1a1206;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: 600;
+    box-shadow: 0 6px 22px -8px rgba(168, 122, 74, 0.55);
   }
   .btn:hover {
-    background: transparent;
-    color: var(--text);
+    background: linear-gradient(135deg, #d49a5e 0%, #b98a58 50%, #9a6e44 100%);
+    color: #140d03;
+    box-shadow: 0 10px 30px -8px rgba(168, 122, 74, 0.78);
+    transform: translateY(-2px);
   }
   .btn .arrow {
     transition: transform 0.3s ease;
@@ -316,12 +321,35 @@
   .btn-ghost {
     background: transparent;
     color: var(--text);
-    border-color: var(--line-bright);
+    border: 1px solid var(--line-bright);
+    box-shadow: none;
   }
   .btn-ghost:hover {
-    border-color: var(--text);
+    border-color: var(--ember);
     background: transparent;
     color: var(--text);
+    box-shadow: none;
+  }
+
+  /* Sticky mobile order button — always reachable on phones */
+  .mobile-cta { display: none; }
+  @media (max-width: 768px) {
+    .mobile-cta {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 150;
+      padding: 1.05rem;
+      font-family: var(--font);
+      font-size: 0.9rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-weight: 700;
+      text-decoration: none;
+      color: #140d03;
+      background: linear-gradient(135deg, #c08a52 0%, #a87a4a 50%, #8a6038 100%);
+      border-radius: 4px;
+      box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.65);
+    }
+    .mobile-cta::after { content: '→'; }
+    /* keep the last section clear of the fixed button */
+    .connect { padding-bottom: 7rem; }
   }
 
   /* Hero side meta */
@@ -963,16 +991,22 @@
   .product-cta {
     font-size: 0.72rem;
     letter-spacing: 0.1em;
-    color: var(--text);
+    color: var(--ember);
     text-decoration: none;
     text-transform: uppercase;
-    font-weight: 500;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var(--line-bright);
-    transition: border-color 0.3s ease;
+    font-weight: 600;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--ember-soft);
+    border-radius: 2px;
+    transition: all 0.25s ease;
     flex-shrink: 0;
+    white-space: nowrap;
   }
-  .product-cta:hover { border-color: var(--text); }
+  .product-cta:hover {
+    background: var(--ember);
+    color: #140d03;
+    border-color: var(--ember);
+  }
 
   /* Category-level CTA */
   .work-category-cta {
@@ -3326,6 +3360,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 </script>
+
+<a href="#connect" class="mobile-cta" data-i18n="hero_cta1">Замовити</a>
 
 </body>
 </html>
