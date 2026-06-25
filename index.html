@@ -1909,6 +1909,15 @@ footer {
   .swords-video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 4rem; }
   .swords-video { width: 100%; max-height: 600px; object-fit: contain; background: #0a0a0a; border: 1px solid var(--line); border-radius: 2px; display: block; }
   @media (max-width: 760px) { .swords-video-grid { grid-template-columns: 1fr; } }
+  /* === Edit: section heads not hugging edges === */
+  .section-head-row, .work-category-head { grid-template-columns: max-content minmax(300px, 1fr); }
+  @media (max-width: 768px) { .section-head-row, .work-category-head { grid-template-columns: 1fr; } }
+  /* === Edit: work intro as list === */
+  .section-intro .work-intro-list { list-style: none; margin: 0.7rem 0 0.8rem; padding: 0; display: grid; gap: 0.4rem; }
+  .section-intro .work-intro-list li { position: relative; padding-left: 1.15rem; }
+  .section-intro .work-intro-list li::before { content: '\2014'; position: absolute; left: 0; color: var(--ember); }
+  .section-intro .intro-lead { color: var(--text); font-weight: 500; }
+  .section-intro .intro-foot { display: block; margin-top: 0.5rem; }
 </style>
 </head>
 <body>
@@ -2027,7 +2036,7 @@ footer {
           <div class="eyebrow"><span data-i18n="work_label">Послуги</span></div>
           <h2 data-i18n="work_title">Напрямки <strong>роботи</strong></h2>
         </div>
-        <p class="section-intro" data-i18n="work_intro">Готові вироби, шаблі під замовлення, індивідуальні проєкти та авторські роботи. Кожен виріб — ручна робота від ескізу до клинка.</p>
+        <div class="section-intro" data-i18n="work_intro"><span class='intro-lead'>Напрямки роботи:</span><ul class='work-intro-list'><li>Готові вироби</li><li>Вироби під замовлення</li><li>Індивідуальні проєкти</li><li>Авторські роботи</li></ul><span class='intro-foot'>Кожен виріб — ручна робота від ескізу до клинка.</span></div>
       </div>
     </div>
 
@@ -2035,12 +2044,11 @@ footer {
     <div class="work-category">
       <div class="work-category-head">
         <div>
-          <h3 class="work-category-title" data-i18n="cat_1_title">Готові <strong>вироби</strong></h3>
+          <h3 class="work-category-title">Вироби <strong>в наявності</strong></h3>
         </div>
         <p class="work-category-desc" data-i18n="cat_1_desc">Перевірені моделі, які можна отримати одразу або з мінімальним терміном. Серійне виробництво та авторська ковка.</p>
       </div>
 
-      <!-- Sub-category A: Серійні тактичні (не ковані) -->
       <div class="subcategory">
         <div class="subcategory-label" data-i18n="subcat_serial">Серійні тактичні</div>
         <div class="product-grid">
@@ -2130,10 +2138,22 @@ footer {
         </div>
         </div>
       </div>
+      <div class="work-category-cta">
+        <a href="#connect" data-i18n="cat_cta_order">Замовити →</a>
+      </div>
+    </div>
 
-      <!-- Sub-category B: Серійні ковані на замовлення -->
+    <!-- CATEGORY 2: ON ORDER -->
+    <div class="work-category">
+      <div class="work-category-head">
+        <div>
+          <h3 class="work-category-title">Під <strong>замовлення</strong></h3>
+        </div>
+        <p class="work-category-desc">Вироби, що виготовляються індивідуально під ваше замовлення: серійні ковані ножі, шаблі та мечі власного виробництва.</p>
+      </div>
+
       <div class="subcategory">
-        <div class="subcategory-label" data-i18n="subcat_forged">Серійні ковані на замовлення</div>
+        <div class="subcategory-label">Серійні ковані ножі</div>
         <div class="product-grid">
         <div class="product-card">
           <div class="product-image">
@@ -2226,22 +2246,8 @@ footer {
         </div>
       </div>
 
-      <div class="work-category-cta">
-        <a href="#connect" data-i18n="cat_cta_order">Замовити →</a>
-      </div>
-    </div>
-
-    <!-- CATEGORY 2: SABRES -->
-    <div class="work-category">
-      <div class="work-category-head">
-        <div>
-          <h3 class="work-category-title" data-i18n="cat_2_title">Кована <strong>шабля</strong></h3>
-        </div>
-        <p class="work-category-desc" data-i18n="cat_2_desc">Шабля — один з найдавніших видів довгого клинка з одностороннім заточенням. Кузня ViY пропонує шаблі власного виробництва: клинки ковані, повний цикл термообробки. Сталі вуглецеві (65Г, 60С2А) та нержавіючі (40Х13, Х12МФ). Твердість 50–54 HRC. Спуски клинків — холодна ковка. Також — багатошарові дамаськ і булат власного виготовлення.</p>
-      </div>
-
       <div class="subcategory">
-        <div class="subcategory-label" data-i18n="subcat_sabres_series">Серійні моделі на замовлення</div>
+        <div class="subcategory-label">Кована шабля</div>
         <div class="product-grid">
         <div class="product-card">
           <div class="product-image">
@@ -2438,232 +2444,6 @@ footer {
         </div>
       </div>
 
-      <div class="work-category-cta">
-        <a href="#connect" data-i18n="cat_cta_order">Замовити →</a>
-      </div>
-    </div>
-
-    <!-- CATEGORY 3: COMMISSION -->
-    <div class="work-category">
-      <div class="work-category-head">
-        <div>
-          <h3 class="work-category-title" data-i18n="cat_2_title">Індивідуальні <strong>вироби</strong></h3>
-        </div>
-        <p class="work-category-desc" data-i18n="cat_3_individual_desc">За вашим ескізом або моїм проєктом. Шаблі, катани, мисливська зброя, історичні репліки, сокири.</p>
-      </div>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <div class="product-image">
-            <div class="pi-slide active"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 1</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 2</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 3</div></div>
-          </div>
-          <div class="product-thumbs">
-            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><div class="product-image-placeholder">1</div></div>
-            <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><div class="product-image-placeholder">2</div></div>
-            <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><div class="product-image-placeholder">3</div></div>
-          </div>
-          <div class="product-body">
-            <div class="product-name" data-i18n="commission_1_name">Шабля</div>
-            <ul class="product-specs">
-              <li><span class="spec-label" data-i18n="ph_steel">Сталь</span><span class="spec-value" data-i18n="commission_1_steel">за погодженням</span></li>
-              <li><span class="spec-label" data-i18n="ph_term">Термін</span><span class="spec-value">2–4 міс</span></li>
-            </ul>
-            <div class="product-meta">
-              <div class="product-price-block">
-                <div class="product-price" data-i18n="price_individual">індивідуально</div>
-              </div>
-              <a href="#connect" class="product-cta" data-i18n="cta_discuss">Обговорити</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image">
-            <div class="pi-slide active"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 1</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 2</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 3</div></div>
-          </div>
-          <div class="product-thumbs">
-            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><div class="product-image-placeholder">1</div></div>
-            <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><div class="product-image-placeholder">2</div></div>
-            <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><div class="product-image-placeholder">3</div></div>
-          </div>
-          <div class="product-body">
-            <div class="product-name" data-i18n="commission_2_name">Катана</div>
-            <ul class="product-specs">
-              <li><span class="spec-label" data-i18n="ph_steel">Сталь</span><span class="spec-value" data-i18n="commission_2_steel">за погодженням</span></li>
-              <li><span class="spec-label" data-i18n="ph_term">Термін</span><span class="spec-value">3–6 міс</span></li>
-            </ul>
-            <div class="product-meta">
-              <div class="product-price-block">
-                <div class="product-price" data-i18n="price_individual">індивідуально</div>
-              </div>
-              <a href="#connect" class="product-cta" data-i18n="cta_discuss">Обговорити</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image">
-            <div class="pi-slide active"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 1</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 2</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 3</div></div>
-          </div>
-          <div class="product-thumbs">
-            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><div class="product-image-placeholder">1</div></div>
-            <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><div class="product-image-placeholder">2</div></div>
-            <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><div class="product-image-placeholder">3</div></div>
-          </div>
-          <div class="product-body">
-            <div class="product-name" data-i18n="commission_3_name">Авторський ніж</div>
-            <ul class="product-specs">
-              <li><span class="spec-label" data-i18n="ph_steel">Сталь</span><span class="spec-value" data-i18n="commission_3_steel">за погодженням</span></li>
-              <li><span class="spec-label" data-i18n="ph_term">Термін</span><span class="spec-value">1–2 міс</span></li>
-            </ul>
-            <div class="product-meta">
-              <div class="product-price-block">
-                <div class="product-price" data-i18n="price_individual">індивідуально</div>
-              </div>
-              <a href="#connect" class="product-cta" data-i18n="cta_discuss">Обговорити</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-category-cta">
-        <a href="#connect" data-i18n="cat_cta_order">Замовити →</a>
-      </div>
-    </div>
-
-    <!-- CATEGORY 3b: ORIGINAL (merged) -->
-    <div class="work-category">
-      <div class="work-category-head">
-        <div>
-          <h3 class="work-category-title" data-i18n="cat_3_title">Унікальні роботи</h3>
-        </div>
-        <p class="work-category-desc" data-i18n="cat_4_author_desc">Вироби в єдиному екземплярі. З-під молота тоді, коли приходить ідея.</p>
-      </div>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <div class="product-image">
-            <div class="pi-slide active"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 1</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 2</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 3</div></div>
-          </div>
-          <div class="product-thumbs">
-            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><div class="product-image-placeholder">1</div></div>
-            <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><div class="product-image-placeholder">2</div></div>
-            <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><div class="product-image-placeholder">3</div></div>
-          </div>
-          <div class="product-body">
-            <div class="product-name" data-i18n="original_1_name">Колекційний клинок</div>
-            <ul class="product-specs">
-              <li><span class="spec-label" data-i18n="ph_type">Тип</span><span class="spec-value" data-i18n="ph_unique">унікальний</span></li>
-              <li><span class="spec-label" data-i18n="ph_qty">Тираж</span><span class="spec-value">1 / 1</span></li>
-            </ul>
-            <div class="product-meta">
-              <div class="product-price-block">
-                <div class="product-price" data-i18n="price_by_request">за запитом</div>
-              </div>
-              <a href="https://t.me/viycoldweapon" target="_blank" class="product-cta" data-i18n="cta_follow">Стежити</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image">
-            <div class="pi-slide active"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 1</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 2</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 3</div></div>
-          </div>
-          <div class="product-thumbs">
-            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><div class="product-image-placeholder">1</div></div>
-            <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><div class="product-image-placeholder">2</div></div>
-            <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><div class="product-image-placeholder">3</div></div>
-          </div>
-          <div class="product-body">
-            <div class="product-name" data-i18n="original_2_name">Експериментальна форма</div>
-            <ul class="product-specs">
-              <li><span class="spec-label" data-i18n="ph_type">Тип</span><span class="spec-value" data-i18n="ph_unique">унікальний</span></li>
-              <li><span class="spec-label" data-i18n="ph_qty">Тираж</span><span class="spec-value">1 / 1</span></li>
-            </ul>
-            <div class="product-meta">
-              <div class="product-price-block">
-                <div class="product-price" data-i18n="price_by_request">за запитом</div>
-              </div>
-              <a href="https://t.me/viycoldweapon" target="_blank" class="product-cta" data-i18n="cta_follow">Стежити</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image">
-            <div class="pi-slide active"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 1</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 2</div></div>
-            <div class="pi-slide"><div class="product-image-placeholder" data-i18n="ph_photo">Фото 3</div></div>
-          </div>
-          <div class="product-thumbs">
-            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><div class="product-image-placeholder">1</div></div>
-            <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><div class="product-image-placeholder">2</div></div>
-            <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><div class="product-image-placeholder">3</div></div>
-          </div>
-          <div class="product-body">
-            <div class="product-name" data-i18n="original_3_name">Дамаск, мозаїка</div>
-            <ul class="product-specs">
-              <li><span class="spec-label" data-i18n="ph_type">Тип</span><span class="spec-value" data-i18n="ph_unique">унікальний</span></li>
-              <li><span class="spec-label" data-i18n="ph_qty">Тираж</span><span class="spec-value">1 / 1</span></li>
-            </ul>
-            <div class="product-meta">
-              <div class="product-price-block">
-                <div class="product-price" data-i18n="price_by_request">за запитом</div>
-              </div>
-              <a href="https://t.me/viycoldweapon" target="_blank" class="product-cta" data-i18n="cta_follow">Стежити</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-category-cta">
-        <a href="#connect" data-i18n="cat_cta_order">Замовити →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SWORDS / МЕЧІ -->
-<section class="work swords" id="swords" data-bg-scene="3">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-head-row">
-        <div>
-          <div class="eyebrow"><span data-i18n="swords_label">Мечі</span></div>
-          <h2 data-i18n="swords_title">Мистецтво <strong>меча</strong></h2>
-        </div>
-        <p class="section-intro" data-i18n="swords_intro">Меч — це більше, ніж зброя: статус, історія та данина майстрам минулого.</p>
-      </div>
-    </div>
-
-    <div class="swords-intro-text">
-      <p data-i18n="swords_p1">Історія меча налічує понад 3000 років. Від доби ранньої бронзи й до сьогодні меч змінював форми, методи виготовлення, дизайн та призначення.</p>
-      <p data-i18n="swords_p2">Вигадати сьогодні щось нове в архітектурі та оздобленні меча вкрай важко — попередні покоління ковалів і воїнів досягли в цьому майже неперевершених результатів.</p>
-      <p data-i18n="swords_p3">Сьогодні меч виконує здебільшого церемоніальні функції, підкреслює статус власника та слугує нагадуванням про попередні покоління майстрів меча.</p>
-      <p data-i18n="swords_p4"><strong>Кузня ВіЯ пропонує мечі власного виробництва.</strong> Матеріали — гомогенні та багатошарові (дамаські) сталі. Розміри, оздоблення та форми — за погодженням із замовником.</p>
-    </div>
-
-    <div class="swords-video-grid">
-      <video class="swords-video" controls preload="metadata" playsinline>
-        <source src="media/sword-forging-1.mp4" type="video/mp4">
-      </video>
-      <video class="swords-video" controls preload="metadata" playsinline>
-        <source src="media/sword-forging-2.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div class="work-category" style="border-top:1px solid var(--line); margin-top:1rem;">
       <div class="subcategory">
         <div class="subcategory-label" data-i18n="swords_subcat">Мечі власного виробництва</div>
         <div class="product-grid">
@@ -2740,6 +2520,37 @@ footer {
       <div class="work-category-cta">
         <a href="#connect" data-i18n="cat_cta_order">Замовити →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SWORDS / МЕЧІ -->
+<section class="work swords" id="swords" data-bg-scene="3">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head-row">
+        <div>
+          <div class="eyebrow"><span data-i18n="swords_label">Мечі</span></div>
+          <h2 data-i18n="swords_title">Мистецтво <strong>меча</strong></h2>
+        </div>
+        <p class="section-intro" data-i18n="swords_intro">Меч — це більше, ніж зброя: статус, історія та данина майстрам минулого.</p>
+      </div>
+    </div>
+
+    <div class="swords-intro-text">
+      <p data-i18n="swords_p1">Історія меча налічує понад 3000 років. Від доби ранньої бронзи й до сьогодні меч змінював форми, методи виготовлення, дизайн та призначення.</p>
+      <p data-i18n="swords_p2">Вигадати сьогодні щось нове в архітектурі та оздобленні меча вкрай важко — попередні покоління ковалів і воїнів досягли в цьому майже неперевершених результатів.</p>
+      <p data-i18n="swords_p3">Сьогодні меч виконує здебільшого церемоніальні функції, підкреслює статус власника та слугує нагадуванням про попередні покоління майстрів меча.</p>
+      <p data-i18n="swords_p4"><strong>Кузня VIY пропонує мечі власного виробництва.</strong> Матеріали — гомогенні та багатошарові (дамаські) сталі. Розміри, оздоблення та форми — за погодженням із замовником.</p>
+    </div>
+
+    <div class="swords-video-grid">
+      <video class="swords-video" controls preload="metadata" playsinline>
+        <source src="media/sword-forging-1.mp4" type="video/mp4">
+      </video>
+      <video class="swords-video" controls preload="metadata" playsinline>
+        <source src="media/sword-forging-2.mp4" type="video/mp4">
+      </video>
     </div>
 
   </div>
@@ -3067,7 +2878,7 @@ footer {
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">ViY</div>
-    <div class="footer-text" data-i18n="footer_text">Кузня ViY. Ножі, шаблі, сокири ручної роботи.</div>
+    <div class="footer-text" data-i18n="footer_text">Кузня VIY. Ножі, шаблі, сокири ручної роботи.</div>
     <div class="footer-copy">© 2026 Андрій Струневич</div>
   </div>
 </footer>
@@ -3181,7 +2992,7 @@ document.addEventListener("DOMContentLoaded", function() {
       contact_sub: "Найшвидше — у WhatsApp. Можна писати українською, польською, англійською або російською.",
       contact_phone_label: "Телефон", contact_phone_num: "+48 ··· ··· ···",
       contact_wa_label: "Написати", contact_fb_label: "Особиста сторінка",
-      footer_text: "Кузня ViY. Ножі, шаблі, сокири ручної роботи.",
+      footer_text: "Кузня VIY. Ножі, шаблі, сокири ручної роботи.",
       page_title: "ViY — Кузня. Ножі, шаблі, сокири ручної роботи"
     },
     pl: {
@@ -3261,7 +3072,7 @@ document.addEventListener("DOMContentLoaded", function() {
       contact_sub: "Najszybciej — na WhatsApp. Można pisać po polsku, ukraińsku, angielsku lub rosyjsku.",
       contact_phone_label: "Telefon", contact_phone_num: "+48 ··· ··· ···",
       contact_wa_label: "Napisz", contact_fb_label: "Strona osobista",
-      footer_text: "Kuźnia ViY. Noże, szable, topory ręcznej roboty.",
+      footer_text: "Kuźnia VIY. Noże, szable, topory ręcznej roboty.",
       page_title: "ViY — Kuźnia. Noże, szable, topory ręcznej roboty"
     },
     en: {
@@ -3341,7 +3152,7 @@ document.addEventListener("DOMContentLoaded", function() {
       contact_sub: "WhatsApp is the fastest way. You can write in English, Ukrainian, Polish, or Russian.",
       contact_phone_label: "Phone", contact_phone_num: "+48 ··· ··· ···",
       contact_wa_label: "Message", contact_fb_label: "Personal page",
-      footer_text: "ViY forge. Knives, sabres, axes — hand-forged.",
+      footer_text: "VIY forge. Knives, sabres, axes — hand-forged.",
       page_title: "ViY — Forge. Knives, sabres, axes — hand-forged."
     }
   };
@@ -3352,8 +3163,9 @@ document.addEventListener("DOMContentLoaded", function() {
     swords_p1: "Історія меча налічує понад 3000 років. Від доби ранньої бронзи й до сьогодні меч змінював форми, методи виготовлення, дизайн та призначення.",
     swords_p2: "Вигадати сьогодні щось нове в архітектурі та оздобленні меча вкрай важко — попередні покоління ковалів і воїнів досягли в цьому майже неперевершених результатів.",
     swords_p3: "Сьогодні меч виконує здебільшого церемоніальні функції, підкреслює статус власника та слугує нагадуванням про попередні покоління майстрів меча.",
-    swords_p4: "<strong>Кузня ВіЯ пропонує мечі власного виробництва.</strong> Матеріали — гомогенні та багатошарові (дамаські) сталі. Розміри, оздоблення та форми — за погодженням із замовником.",
-    swords_subcat: "Мечі власного виробництва"
+    swords_p4: "<strong>Кузня VIY пропонує мечі власного виробництва.</strong> Матеріали — гомогенні та багатошарові (дамаські) сталі. Розміри, оздоблення та форми — за погодженням із замовником.",
+    swords_subcat: "Мечі власного виробництва",
+    work_intro: "<span class='intro-lead'>Напрямки роботи:</span><ul class='work-intro-list'><li>Готові вироби</li><li>Вироби під замовлення</li><li>Індивідуальні проєкти</li><li>Авторські роботи</li></ul><span class='intro-foot'>Кожен виріб — ручна робота від ескізу до клинка.</span>"
   });
   Object.assign(translations.pl, {
     nav_swords: "Miecze", swords_label: "Miecze", swords_title: "Sztuka <strong>miecza</strong>",
@@ -3361,8 +3173,9 @@ document.addEventListener("DOMContentLoaded", function() {
     swords_p1: "Historia miecza liczy ponad 3000 lat. Od wczesnej epoki brązu po dziś dzień miecz zmieniał formy, metody wytwarzania, wygląd i przeznaczenie.",
     swords_p2: "Wymyślić dziś coś nowego w budowie i zdobieniu miecza jest niezwykle trudno — poprzednie pokolenia kowali i wojowników osiągnęły w tym niemal niedościgłe rezultaty.",
     swords_p3: "Dziś miecz pełni głównie funkcje ceremonialne, podkreśla status właściciela i przypomina o dawnych mistrzach miecza.",
-    swords_p4: "<strong>Kuźnia ViY oferuje miecze własnej produkcji.</strong> Materiały — stale homogeniczne i wielowarstwowe (damasceńskie). Wymiary, zdobienia i kształty — po uzgodnieniu z klientem.",
-    swords_subcat: "Miecze własnej produkcji"
+    swords_p4: "<strong>Kuźnia VIY oferuje miecze własnej produkcji.</strong> Materiały — stale homogeniczne i wielowarstwowe (damasceńskie). Wymiary, zdobienia i kształty — po uzgodnieniu z klientem.",
+    swords_subcat: "Miecze własnej produkcji",
+    work_intro: "<span class='intro-lead'>Kierunki pracy:</span><ul class='work-intro-list'><li>Gotowe wyroby</li><li>Wyroby na zamówienie</li><li>Projekty indywidualne</li><li>Prace autorskie</li></ul><span class='intro-foot'>Każdy wyrób — praca ręczna od szkicu do klinka.</span>"
   });
   Object.assign(translations.en, {
     nav_swords: "Swords", swords_label: "Swords", swords_title: "The art of the <strong>sword</strong>",
@@ -3370,8 +3183,9 @@ document.addEventListener("DOMContentLoaded", function() {
     swords_p1: "The history of the sword spans over 3000 years. From the early Bronze Age to today it has changed its forms, methods of making, design and purpose.",
     swords_p2: "Inventing something new in the architecture and decoration of a sword is extremely hard today — earlier generations of smiths and warriors reached almost unsurpassed results.",
     swords_p3: "Today the sword mostly serves ceremonial purposes, underlines the owner's status and honours past generations of sword masters.",
-    swords_p4: "<strong>The ViY forge offers swords of its own making.</strong> Materials — homogeneous and multilayer (Damascus) steels. Sizes, decoration and shapes — agreed with the customer.",
-    swords_subcat: "Swords of our own making"
+    swords_p4: "<strong>The VIY forge offers swords of its own making.</strong> Materials — homogeneous and multilayer (Damascus) steels. Sizes, decoration and shapes — agreed with the customer.",
+    swords_subcat: "Swords of our own making",
+    work_intro: "<span class='intro-lead'>What we do:</span><ul class='work-intro-list'><li>Ready-made pieces</li><li>Made-to-order pieces</li><li>Custom projects</li><li>Author\u2019s works</li></ul><span class='intro-foot'>Every piece is handmade — from sketch to blade.</span>"
   });
 
   function setLang(lang) {
