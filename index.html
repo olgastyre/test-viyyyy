@@ -1956,9 +1956,11 @@ footer {
   @media (max-width: 760px) { .swords-video-grid { grid-template-columns: 1fr; } }
   /* Edit: master photo in bio */
   .about-photo { position: sticky; top: 100px; }
-  .about-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 35%; display: block; border: none; border-radius: 2px;
-    -webkit-mask-image: radial-gradient(ellipse 92% 92% at 50% 50%, #000 68%, transparent 100%);
-    mask-image: radial-gradient(ellipse 92% 92% at 50% 50%, #000 68%, transparent 100%); }
+  .about-photo img { width: 100%; height: auto; display: block; border: none; border-radius: 2px;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 13%, #000 87%, transparent), linear-gradient(to bottom, transparent, #000 13%, #000 87%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 13%, #000 87%, transparent), linear-gradient(to bottom, transparent, #000 13%, #000 87%, transparent);
+    mask-composite: intersect; }
   @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr !important; } .about-photo { position: static; margin-top: 1rem; } }
   /* Edit: info cards size to content, smaller */
   .info-grid { align-items: start; }
@@ -1973,14 +1975,8 @@ footer {
   @media (max-width: 560px) { .gallery-categories { grid-template-columns: repeat(2, 1fr); } }
   /* Edit: youtube video previews in gallery */
   .gallery-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
-  .gallery-video { position: relative; display: block; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--line); border-radius: 2px; }
-  .gallery-video img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-  .gallery-video::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.22); transition: background 0.3s ease; }
-  .gallery-video:hover img { transform: scale(1.05); }
-  .gallery-video:hover::after { background: rgba(0,0,0,0.1); }
-  .gallery-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 62px; height: 62px; border-radius: 50%; background: rgba(168,122,74,0.92); z-index: 1; transition: transform 0.3s ease; }
-  .gallery-video-play::before { content: ''; position: absolute; top: 50%; left: 54%; transform: translate(-50%,-50%); border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent #140d03; }
-  .gallery-video:hover .gallery-video-play { transform: translate(-50%,-50%) scale(1.1); }
+  .gallery-video { position: relative; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--line); border-radius: 2px; background: #000; }
+  .gallery-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
   @media (max-width: 600px) { .gallery-videos { grid-template-columns: 1fr; } }
   /* Edit: product images fill proportionally (cover), no backdrop/letterbox */
   .pi-slide img { object-fit: cover !important; padding: 0 !important; }
@@ -2114,7 +2110,7 @@ footer {
     <div class="work-category">
       <div class="work-category-head">
         <div>
-          <h3 class="work-category-title">Вироби <strong>в наявності</strong></h3>
+          <h3 class="work-category-title" data-i18n="pc040">Вироби <strong>в наявності</strong></h3>
         </div>
         <p class="work-category-desc" data-i18n="cat_1_desc">Перевірені моделі, які можна отримати одразу або з мінімальним терміном. Серійне виробництво та авторська ковка.</p>
       </div>
@@ -2134,24 +2130,24 @@ footer {
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img014.webp" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Ніж тактичний «Хорнет»</div>
-            <div class="product-type">Серійний тактичний · не кований</div>
+            <div class="product-name" data-i18n="pc090">Ніж тактичний «Хорнет»</div>
+            <div class="product-type" data-i18n="pc099">Серійний тактичний · не кований</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">Х12МФ</span></div>
-              <div class="product-spec"><span class="spec-label">Розміри</span><span class="spec-value">145 / 26 / 4</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">59–60 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Монтаж</span><span class="spec-value">Фул танг</span></div>
-              <div class="product-spec"><span class="spec-label">Накладки</span><span class="spec-value">Поліуретан</span></div>
-              <div class="product-spec"><span class="spec-label">Зведення</span><span class="spec-value">0,6 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Кут РК</span><span class="spec-value">20° на сторону</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Кайдекс</span></div>
-              <div class="product-spec product-spec-wide"><span class="spec-label">Комплект</span><span class="spec-value">Тек-лок · Пластина для правки 400/600 · Кресало</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc117">Х12МФ</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc095">Розміри</span><span class="spec-value" data-i18n="pc003">145 / 26 / 4</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc019">59–60 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc079">Монтаж</span><span class="spec-value" data-i18n="pc114">Фул танг</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc083">Накладки</span><span class="spec-value" data-i18n="pc093">Поліуретан</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc060">Зведення</span><span class="spec-value" data-i18n="pc000">0,6 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc074">Кут РК</span><span class="spec-value" data-i18n="pc010">20° на сторону</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc061">Кайдекс</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc073">Комплект</span><span class="spec-value" data-i18n="pc106">Тек-лок · Пластина для правки 400/600 · Кресало</span></div>
             </div>
             <a href="https://youtu.be/P_b8v6tXuqA?si=RyqsNtqeWxn8fbEi" target="_blank" rel="noopener" class="product-youtube">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.546 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               <span>Відео-огляд на YouTube</span>
             </a>
-            <div class="product-price">від 2 500 ₴</div>
+            <div class="product-price" data-i18n="pc131">від 2 500 ₴</div>
           </div>
         </div>
 
@@ -2167,18 +2163,18 @@ footer {
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img020.webp" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Ніж «Пумба»</div>
-            <div class="product-type">Серійний тактичний · не кований</div>
+            <div class="product-name" data-i18n="pc088">Ніж «Пумба»</div>
+            <div class="product-type" data-i18n="pc099">Серійний тактичний · не кований</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">Х12МФ</span></div>
-              <div class="product-spec"><span class="spec-label">Розміри</span><span class="spec-value">90 / 28 / 4</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">60 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Монтаж</span><span class="spec-value">Фул танг</span></div>
-              <div class="product-spec"><span class="spec-label">Накладки</span><span class="spec-value">Дуб</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Кайдекс</span></div>
-              <div class="product-spec product-spec-wide"><span class="spec-label">Комплект</span><span class="spec-value">Кліпса</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc117">Х12МФ</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc095">Розміри</span><span class="spec-value" data-i18n="pc029">90 / 28 / 4</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc021">60 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc079">Монтаж</span><span class="spec-value" data-i18n="pc114">Фул танг</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc083">Накладки</span><span class="spec-value" data-i18n="pc058">Дуб</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc061">Кайдекс</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc073">Комплект</span><span class="spec-value" data-i18n="pc066">Кліпса</span></div>
             </div>
-            <div class="product-price">від 2 100 ₴</div>
+            <div class="product-price" data-i18n="pc130">від 2 100 ₴</div>
           </div>
         </div>
 
@@ -2194,24 +2190,24 @@ footer {
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img026.webp" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Ніж «Тичковий»</div>
-            <div class="product-type">Серійний тактичний · не кований</div>
+            <div class="product-name" data-i18n="pc089">Ніж «Тичковий»</div>
+            <div class="product-type" data-i18n="pc099">Серійний тактичний · не кований</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">9ХФА</span></div>
-              <div class="product-spec"><span class="spec-label">Розміри</span><span class="spec-value">90 / 30 / 4</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">58–59 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Паракорд</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">АВС пластик</span></div>
-              <div class="product-spec product-spec-wide"><span class="spec-label">Комплект</span><span class="spec-value">Сталева кліпса</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc031">9ХФА</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc095">Розміри</span><span class="spec-value" data-i18n="pc030">90 / 30 / 4</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc018">58–59 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc092">Паракорд</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc034">АВС пластик</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc073">Комплект</span><span class="spec-value" data-i18n="pc102">Сталева кліпса</span></div>
             </div>
-            <div class="product-price">від 1 250 ₴</div>
+            <div class="product-price" data-i18n="pc129">від 1 250 ₴</div>
           </div>
         </div>
         </div>
       </div>
 
       <div class="subcategory">
-        <div class="subcategory-label">Серійні ковані ножі</div>
+        <div class="subcategory-label" data-i18n="pc100">Серійні ковані ножі</div>
         <div class="product-grid">
         <div class="product-card">
           <div class="product-image">
@@ -2225,22 +2221,22 @@ footer {
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img032.webp" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Ніж «Дикий»</div>
-            <div class="product-type">Серійний кований на замовлення</div>
+            <div class="product-name" data-i18n="pc086">Ніж «Дикий»</div>
+            <div class="product-type" data-i18n="pc098">Серійний кований на замовлення</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Технологія</span><span class="spec-value">Ковка</span></div>
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">Х12МФ</span></div>
-              <div class="product-spec"><span class="spec-label">Розміри</span><span class="spec-value">180 / 30 / 5 / 305</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">58–59 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Зведення</span><span class="spec-value">0,8 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Кут РК</span><span class="spec-value">19–20° на сторону</span></div>
-              <div class="product-spec"><span class="spec-label">Гарда/тильник</span><span class="spec-value">Сталеві</span></div>
-              <div class="product-spec"><span class="spec-label">Монтаж</span><span class="spec-value">Наскрізний, гвинт-склобій</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Набірна шкіра</span></div>
-              <div class="product-spec"><span class="spec-label">Темляк</span><span class="spec-value">Паракорд</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Кайдекс</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc109">Технологія</span><span class="spec-value" data-i18n="pc072">Ковка</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc117">Х12МФ</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc095">Розміри</span><span class="spec-value" data-i18n="pc007">180 / 30 / 5 / 305</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc018">58–59 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc060">Зведення</span><span class="spec-value" data-i18n="pc001">0,8 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc074">Кут РК</span><span class="spec-value" data-i18n="pc009">19–20° на сторону</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc045">Гарда/тильник</span><span class="spec-value" data-i18n="pc103">Сталеві</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc079">Монтаж</span><span class="spec-value" data-i18n="pc085">Наскрізний, гвинт-склобій</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc082">Набірна шкіра</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc107">Темляк</span><span class="spec-value" data-i18n="pc092">Паракорд</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc061">Кайдекс</span></div>
             </div>
-            <div class="product-price">від 6 500 ₴</div>
+            <div class="product-price" data-i18n="pc133">від 6 500 ₴</div>
           </div>
         </div>
 
@@ -2256,20 +2252,20 @@ footer {
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img038.webp" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Кинджал «Гном»</div>
-            <div class="product-type">Серійний кований на замовлення</div>
+            <div class="product-name" data-i18n="pc064">Кинджал «Гном»</div>
+            <div class="product-type" data-i18n="pc098">Серійний кований на замовлення</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Технологія</span><span class="spec-value">Ковка</span></div>
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">N690</span></div>
-              <div class="product-spec"><span class="spec-label">Розміри</span><span class="spec-value">155 / 26 / 4 або 175 / 26 / 4</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">60 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Набірна шкіра</span></div>
-              <div class="product-spec"><span class="spec-label">Монтаж</span><span class="spec-value">Наскрізний</span></div>
-              <div class="product-spec"><span class="spec-label">Тильник</span><span class="spec-value">Склобій</span></div>
-              <div class="product-spec"><span class="spec-label">Темляк</span><span class="spec-value">Паракорд</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Шкіра</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc109">Технологія</span><span class="spec-value" data-i18n="pc072">Ковка</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc032">N690</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc095">Розміри</span><span class="spec-value" data-i18n="pc004">155 / 26 / 4 або 175 / 26 / 4</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc021">60 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc082">Набірна шкіра</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc079">Монтаж</span><span class="spec-value" data-i18n="pc084">Наскрізний</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc110">Тильник</span><span class="spec-value" data-i18n="pc101">Склобій</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc107">Темляк</span><span class="spec-value" data-i18n="pc092">Паракорд</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc128">Шкіра</span></div>
             </div>
-            <div class="product-price">від 6 800 ₴</div>
+            <div class="product-price" data-i18n="pc134">від 6 800 ₴</div>
           </div>
         </div>
 
@@ -2285,20 +2281,20 @@ footer {
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img044.webp" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Ніж «Польовий»</div>
-            <div class="product-type">Серійний кований на замовлення</div>
+            <div class="product-name" data-i18n="pc087">Ніж «Польовий»</div>
+            <div class="product-type" data-i18n="pc098">Серійний кований на замовлення</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Технологія</span><span class="spec-value">Ковка</span></div>
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">У8 або Х12МФ (на вибір)</span></div>
-              <div class="product-spec"><span class="spec-label">Розміри</span><span class="spec-value">165 / 26 / 4,5 / 285</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">54–55 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Гарда/тильник</span><span class="spec-value">Сталеві</span></div>
-              <div class="product-spec"><span class="spec-label">Склобій</span><span class="spec-value">Сталь</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Набірна шкіра</span></div>
-              <div class="product-spec"><span class="spec-label">Монтаж</span><span class="spec-value">Наскрізний</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Чепрак / віск</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc109">Технологія</span><span class="spec-value" data-i18n="pc072">Ковка</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc113">У8 або Х12МФ (на вибір)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc095">Розміри</span><span class="spec-value" data-i18n="pc005">165 / 26 / 4,5 / 285</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc017">54–55 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc045">Гарда/тильник</span><span class="spec-value" data-i18n="pc103">Сталеві</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc101">Склобій</span><span class="spec-value" data-i18n="pc104">Сталь</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc082">Набірна шкіра</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc079">Монтаж</span><span class="spec-value" data-i18n="pc084">Наскрізний</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc120">Чепрак / віск</span></div>
             </div>
-            <div class="product-price">від 5 200 ₴</div>
+            <div class="product-price" data-i18n="pc132">від 5 200 ₴</div>
           </div>
         </div>
         </div>
@@ -2312,15 +2308,15 @@ footer {
     <div class="work-category">
       <div class="work-category-head">
         <div>
-          <h3 class="work-category-title">На <strong>замовлення</strong></h3>
+          <h3 class="work-category-title" data-i18n="pc080">На <strong>замовлення</strong></h3>
         </div>
-        <p class="work-category-desc">Вироби, що виготовляються індивідуально на ваше замовлення.</p>
+        <p class="work-category-desc" data-i18n="pc041">Вироби, що виготовляються індивідуально на ваше замовлення.</p>
       </div>
 
       
 
       <div class="subcategory">
-        <div class="subcategory-label">Кована шабля</div>
+        <div class="subcategory-label" data-i18n="pc071">Кована шабля</div>
         <div class="product-grid">
         <div class="product-card">
           <div class="product-image">
@@ -2336,26 +2332,26 @@ footer {
             <div class="product-thumb" data-slide="3" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img052.jpg" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Шабля «Модель 1»</div>
-            <div class="product-type">Кована · на замовлення</div>
+            <div class="product-name" data-i18n="pc121">Шабля «Модель 1»</div>
+            <div class="product-type" data-i18n="pc067">Кована · на замовлення</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">40Х13</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">50–51 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Довжина клинка</span><span class="spec-value">820 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Ширина (моц/штих)</span><span class="spec-value">32 / 26 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Товщина (моц/штих)</span><span class="spec-value">6 / 3 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Дол</span><span class="spec-value">Вузький + широкий</span></div>
-              <div class="product-spec"><span class="spec-label">Зведення</span><span class="spec-value">1,5 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Вага клинка</span><span class="spec-value">530 г</span></div>
-              <div class="product-spec"><span class="spec-label">Вага шаблі</span><span class="spec-value">820 г (без піхов)</span></div>
-              <div class="product-spec"><span class="spec-label">Точка балансу</span><span class="spec-value">180 мм від гарди</span></div>
-              <div class="product-spec"><span class="spec-label">Гарда/навершшя</span><span class="spec-value">Бронза, художнє литво</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Дерево · стяжний монтаж</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Дерево (яблуня/горіх) · шкіра</span></div>
-              <div class="product-spec"><span class="spec-label">Фурнітура піхов</span><span class="spec-value">Художнє литво, бронза</span></div>
-              <div class="product-spec"><span class="spec-label">Термін</span><span class="spec-value">35–45 днів</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc014">40Х13</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc015">50–51 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc056">Довжина клинка</span><span class="spec-value" data-i18n="pc026">820 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc126">Ширина (моц/штих)</span><span class="spec-value" data-i18n="pc011">32 / 26 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc111">Товщина (моц/штих)</span><span class="spec-value" data-i18n="pc020">6 / 3 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc057">Дол</span><span class="spec-value" data-i18n="pc042">Вузький + широкий</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc060">Зведення</span><span class="spec-value" data-i18n="pc002">1,5 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc038">Вага клинка</span><span class="spec-value" data-i18n="pc016">530 г</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc039">Вага шаблі</span><span class="spec-value" data-i18n="pc025">820 г (без піхов)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc112">Точка балансу</span><span class="spec-value" data-i18n="pc008">180 мм від гарди</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc044">Гарда/навершшя</span><span class="spec-value" data-i18n="pc037">Бронза, художнє литво</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc054">Дерево · стяжний монтаж</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc052">Дерево (яблуня/горіх) · шкіра</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc116">Фурнітура піхов</span><span class="spec-value" data-i18n="pc119">Художнє литво, бронза</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc108">Термін</span><span class="spec-value" data-i18n="pc013">35–45 днів</span></div>
             </div>
-            <div class="product-price">На замовлення</div>
+            <div class="product-price" data-i18n="pc081">На замовлення</div>
           </div>
         </div>
 
@@ -2377,26 +2373,26 @@ footer {
             <div class="product-thumb" data-slide="5" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img064.jpg" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Шабля «Модель 2»</div>
-            <div class="product-type">Кована · на замовлення</div>
+            <div class="product-name" data-i18n="pc122">Шабля «Модель 2»</div>
+            <div class="product-type" data-i18n="pc067">Кована · на замовлення</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">40Х13</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">50–51 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Довжина клинка</span><span class="spec-value">820 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Ширина (моц/штих)</span><span class="spec-value">32 / 26 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Товщина (моц/штих)</span><span class="spec-value">6 / 3 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Дол</span><span class="spec-value">Широкий</span></div>
-              <div class="product-spec"><span class="spec-label">Зведення</span><span class="spec-value">1,5 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Вага клинка</span><span class="spec-value">530 г</span></div>
-              <div class="product-spec"><span class="spec-label">Вага шаблі</span><span class="spec-value">745 г (без піхов)</span></div>
-              <div class="product-spec"><span class="spec-label">Точка балансу</span><span class="spec-value">165 мм від гарди</span></div>
-              <div class="product-spec"><span class="spec-label">Гарда</span><span class="spec-value">Бронза, художнє литво</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Фул танг · ріг лося · мозаїчні піни</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Дерево (яблуня/горіх) · шкіра</span></div>
-              <div class="product-spec"><span class="spec-label">Фурнітура піхов</span><span class="spec-value">Художнє литво, бронза</span></div>
-              <div class="product-spec"><span class="spec-label">Термін</span><span class="spec-value">35–45 днів</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc014">40Х13</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc015">50–51 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc056">Довжина клинка</span><span class="spec-value" data-i18n="pc026">820 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc126">Ширина (моц/штих)</span><span class="spec-value" data-i18n="pc011">32 / 26 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc111">Товщина (моц/штих)</span><span class="spec-value" data-i18n="pc020">6 / 3 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc057">Дол</span><span class="spec-value" data-i18n="pc127">Широкий</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc060">Зведення</span><span class="spec-value" data-i18n="pc002">1,5 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc038">Вага клинка</span><span class="spec-value" data-i18n="pc016">530 г</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc039">Вага шаблі</span><span class="spec-value" data-i18n="pc024">745 г (без піхов)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc112">Точка балансу</span><span class="spec-value" data-i18n="pc006">165 мм від гарди</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc043">Гарда</span><span class="spec-value" data-i18n="pc037">Бронза, художнє литво</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc115">Фул танг · ріг лося · мозаїчні піни</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc052">Дерево (яблуня/горіх) · шкіра</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc116">Фурнітура піхов</span><span class="spec-value" data-i18n="pc119">Художнє литво, бронза</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc108">Термін</span><span class="spec-value" data-i18n="pc013">35–45 днів</span></div>
             </div>
-            <div class="product-price">На замовлення</div>
+            <div class="product-price" data-i18n="pc081">На замовлення</div>
           </div>
         </div>
 
@@ -2414,25 +2410,25 @@ footer {
             <div class="product-thumb" data-slide="3" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img072.jpg" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Шабля «Модель 3»</div>
-            <div class="product-type">Кована · на замовлення · за мотивами шашки РІА зразка 1881 р.</div>
+            <div class="product-name" data-i18n="pc123">Шабля «Модель 3»</div>
+            <div class="product-type" data-i18n="pc070">Кована · на замовлення · за мотивами шашки РІА зразка 1881 р.</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">40Х13</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">50–51 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Довжина клинка</span><span class="spec-value">850 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Ширина (моц/штих)</span><span class="spec-value">33 / 26 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Товщина (моц/штих)</span><span class="spec-value">7 / 3 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Дол</span><span class="spec-value">Широкий</span></div>
-              <div class="product-spec"><span class="spec-label">Зведення</span><span class="spec-value">1,5 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Вага клинка</span><span class="spec-value">до 750 г</span></div>
-              <div class="product-spec"><span class="spec-label">Вага шаблі</span><span class="spec-value">850–870 г (без піхов)</span></div>
-              <div class="product-spec"><span class="spec-label">Гарда/навершшя</span><span class="spec-value">Бронза</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Дерево · стяжний монтаж</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Дерево (яблуня/горіх)</span></div>
-              <div class="product-spec"><span class="spec-label">Фурнітура піхов</span><span class="spec-value">Литво, бронза</span></div>
-              <div class="product-spec"><span class="spec-label">Термін</span><span class="spec-value">35–45 днів</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc014">40Х13</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc015">50–51 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc056">Довжина клинка</span><span class="spec-value" data-i18n="pc027">850 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc126">Ширина (моц/штих)</span><span class="spec-value" data-i18n="pc012">33 / 26 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc111">Товщина (моц/штих)</span><span class="spec-value" data-i18n="pc022">7 / 3 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc057">Дол</span><span class="spec-value" data-i18n="pc127">Широкий</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc060">Зведення</span><span class="spec-value" data-i18n="pc002">1,5 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc038">Вага клинка</span><span class="spec-value" data-i18n="pc135">до 750 г</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc039">Вага шаблі</span><span class="spec-value" data-i18n="pc028">850–870 г (без піхов)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc044">Гарда/навершшя</span><span class="spec-value" data-i18n="pc036">Бронза</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc054">Дерево · стяжний монтаж</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc050">Дерево (яблуня/горіх)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc116">Фурнітура піхов</span><span class="spec-value" data-i18n="pc075">Литво, бронза</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc108">Термін</span><span class="spec-value" data-i18n="pc013">35–45 днів</span></div>
             </div>
-            <div class="product-price">На замовлення</div>
+            <div class="product-price" data-i18n="pc081">На замовлення</div>
           </div>
         </div>
 
@@ -2452,25 +2448,25 @@ footer {
             <div class="product-thumb" data-slide="4" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img082.jpg" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Шабля «Модель 4»</div>
-            <div class="product-type">Кована · на замовлення · за мотивами шашки РІА 1881 р. (драгунка)</div>
+            <div class="product-name" data-i18n="pc125">Шабля «Модель 4»</div>
+            <div class="product-type" data-i18n="pc069">Кована · на замовлення · за мотивами шашки РІА 1881 р. (драгунка)</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">40Х13</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">50–51 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Довжина клинка</span><span class="spec-value">850 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Ширина (моц/штих)</span><span class="spec-value">33 / 26 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Товщина (моц/штих)</span><span class="spec-value">7 / 3 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Дол</span><span class="spec-value">Широкий</span></div>
-              <div class="product-spec"><span class="spec-label">Зведення</span><span class="spec-value">1,5 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Вага клинка</span><span class="spec-value">720–730 г</span></div>
-              <div class="product-spec"><span class="spec-label">Вага шаблі</span><span class="spec-value">850–870 г (без піхов)</span></div>
-              <div class="product-spec"><span class="spec-label">Ефес</span><span class="spec-value">Бронза</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Дерево · стяжний монтаж</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Дерево (яблуня/горіх) + шкіра</span></div>
-              <div class="product-spec"><span class="spec-label">Фурнітура піхов</span><span class="spec-value">Литво, бронза</span></div>
-              <div class="product-spec"><span class="spec-label">Термін</span><span class="spec-value">35–45 днів</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc014">40Х13</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc015">50–51 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc056">Довжина клинка</span><span class="spec-value" data-i18n="pc027">850 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc126">Ширина (моц/штих)</span><span class="spec-value" data-i18n="pc012">33 / 26 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc111">Товщина (моц/штих)</span><span class="spec-value" data-i18n="pc022">7 / 3 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc057">Дол</span><span class="spec-value" data-i18n="pc127">Широкий</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc060">Зведення</span><span class="spec-value" data-i18n="pc002">1,5 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc038">Вага клинка</span><span class="spec-value" data-i18n="pc023">720–730 г</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc039">Вага шаблі</span><span class="spec-value" data-i18n="pc028">850–870 г (без піхов)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc059">Ефес</span><span class="spec-value" data-i18n="pc036">Бронза</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc054">Дерево · стяжний монтаж</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc051">Дерево (яблуня/горіх) + шкіра</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc116">Фурнітура піхов</span><span class="spec-value" data-i18n="pc075">Литво, бронза</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc108">Термін</span><span class="spec-value" data-i18n="pc013">35–45 днів</span></div>
             </div>
-            <div class="product-price">На замовлення</div>
+            <div class="product-price" data-i18n="pc081">На замовлення</div>
           </div>
         </div>
 
@@ -2492,26 +2488,26 @@ footer {
             <div class="product-thumb" data-slide="5" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img094.jpg" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Шабля «Модель 4.1»</div>
-            <div class="product-type">Кована · на замовлення · драгунка · чорна шкіра, гравірування</div>
+            <div class="product-name" data-i18n="pc124">Шабля «Модель 4.1»</div>
+            <div class="product-type" data-i18n="pc068">Кована · на замовлення · драгунка · чорна шкіра, гравірування</div>
             <div class="product-specs">
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">40Х13</span></div>
-              <div class="product-spec"><span class="spec-label">ТО</span><span class="spec-value">50–51 HRC</span></div>
-              <div class="product-spec"><span class="spec-label">Довжина клинка</span><span class="spec-value">850 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Ширина (моц/штих)</span><span class="spec-value">33 / 26 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Товщина (моц/штих)</span><span class="spec-value">7 / 3 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Дол</span><span class="spec-value">Широкий</span></div>
-              <div class="product-spec"><span class="spec-label">Зведення</span><span class="spec-value">1,5 мм</span></div>
-              <div class="product-spec"><span class="spec-label">Вага клинка</span><span class="spec-value">720–730 г</span></div>
-              <div class="product-spec"><span class="spec-label">Вага шаблі</span><span class="spec-value">850–870 г (без піхов)</span></div>
-              <div class="product-spec"><span class="spec-label">Ефес</span><span class="spec-value">Бронза</span></div>
-              <div class="product-spec"><span class="spec-label">Руків'я</span><span class="spec-value">Дерево · шкіра · стяжний монтаж</span></div>
-              <div class="product-spec"><span class="spec-label">Піхви</span><span class="spec-value">Дерево + шкіра (чорна)</span></div>
-              <div class="product-spec"><span class="spec-label">Фурнітура піхов</span><span class="spec-value">Литво, бронза</span></div>
-              <div class="product-spec product-spec-wide"><span class="spec-label">Гравірування</span><span class="spec-value">«Береженого Бог береже, а козака шабля стереже»</span></div>
-              <div class="product-spec"><span class="spec-label">Термін</span><span class="spec-value">35–45 днів</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc014">40Х13</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc015">50–51 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc056">Довжина клинка</span><span class="spec-value" data-i18n="pc027">850 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc126">Ширина (моц/штих)</span><span class="spec-value" data-i18n="pc012">33 / 26 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc111">Товщина (моц/штих)</span><span class="spec-value" data-i18n="pc022">7 / 3 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc057">Дол</span><span class="spec-value" data-i18n="pc127">Широкий</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc060">Зведення</span><span class="spec-value" data-i18n="pc002">1,5 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc038">Вага клинка</span><span class="spec-value" data-i18n="pc023">720–730 г</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc039">Вага шаблі</span><span class="spec-value" data-i18n="pc028">850–870 г (без піхов)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc059">Ефес</span><span class="spec-value" data-i18n="pc036">Бронза</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc055">Дерево · шкіра · стяжний монтаж</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc053">Дерево + шкіра (чорна)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc116">Фурнітура піхов</span><span class="spec-value" data-i18n="pc075">Литво, бронза</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc047">Гравірування</span><span class="spec-value" data-i18n="pc033">«Береженого Бог береже, а козака шабля стереже»</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc108">Термін</span><span class="spec-value" data-i18n="pc013">35–45 днів</span></div>
             </div>
-            <div class="product-price">На замовлення</div>
+            <div class="product-price" data-i18n="pc081">На замовлення</div>
           </div>
         </div>
         </div>
@@ -2538,14 +2534,14 @@ footer {
             <div class="product-thumb" data-slide="5" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img124.jpg" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Меч «Модель 1»</div>
-            <div class="product-type">Меч · дамаська сталь · ручна робота</div>
+            <div class="product-name" data-i18n="pc076">Меч «Модель 1»</div>
+            <div class="product-type" data-i18n="pc078">Меч · дамаська сталь · ручна робота</div>
             <div class="product-specs">
-              <div class="product-spec product-spec-wide"><span class="spec-label">Опис</span><span class="spec-value">Дамаський клинок з гравіруванням, бронзові деталі, навершшя з художнім декором.</span></div>
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">Багатошарова (дамаська)</span></div>
-              <div class="product-spec product-spec-wide"><span class="spec-label">Характеристики</span><span class="spec-value">Розміри, форма та оздоблення — за погодженням із замовником</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc091">Опис</span><span class="spec-value" data-i18n="pc048">Дамаський клинок з гравіруванням, бронзові деталі, навершшя з художнім декором.</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc035">Багатошарова (дамаська)</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc118">Характеристики</span><span class="spec-value" data-i18n="pc096">Розміри, форма та оздоблення — за погодженням із замовником</span></div>
             </div>
-            <div class="product-price">На замовлення</div>
+            <div class="product-price" data-i18n="pc081">На замовлення</div>
           </div>
         </div>
 
@@ -2563,14 +2559,14 @@ footer {
             <div class="product-thumb" data-slide="3" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img132.jpg" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Катана</div>
-            <div class="product-type">Катана · ручна робота</div>
+            <div class="product-name" data-i18n="pc062">Катана</div>
+            <div class="product-type" data-i18n="pc063">Катана · ручна робота</div>
             <div class="product-specs">
-              <div class="product-spec product-spec-wide"><span class="spec-label">Опис</span><span class="spec-value">Клинок з лінією загартування (хамон), оплітка руків'я, цуба, дерев'яні піхви (сая).</span></div>
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">Гомогенна / дамаська</span></div>
-              <div class="product-spec product-spec-wide"><span class="spec-label">Характеристики</span><span class="spec-value">Розміри, форма та оздоблення — за погодженням із замовником</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc091">Опис</span><span class="spec-value" data-i18n="pc065">Клинок з лінією загартування (хамон), оплітка руків'я, цуба, дерев'яні піхви (сая).</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc046">Гомогенна / дамаська</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc118">Характеристики</span><span class="spec-value" data-i18n="pc096">Розміри, форма та оздоблення — за погодженням із замовником</span></div>
             </div>
-            <div class="product-price">На замовлення</div>
+            <div class="product-price" data-i18n="pc081">На замовлення</div>
           </div>
         </div>
 
@@ -2588,14 +2584,14 @@ footer {
             <div class="product-thumb" data-slide="3" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img140.jpg" alt=""></div>
           </div>
           <div class="product-body">
-            <div class="product-name">Меч «Модель 2»</div>
-            <div class="product-type">Меч · дамаська сталь · ручна робота</div>
+            <div class="product-name" data-i18n="pc077">Меч «Модель 2»</div>
+            <div class="product-type" data-i18n="pc078">Меч · дамаська сталь · ручна робота</div>
             <div class="product-specs">
-              <div class="product-spec product-spec-wide"><span class="spec-label">Опис</span><span class="spec-value">Дамаський клинок, чорне руків'я з обмоткою, піхви зі шкіри з гравіруванням на устьі.</span></div>
-              <div class="product-spec"><span class="spec-label">Сталь</span><span class="spec-value">Багатошарова (дамаська)</span></div>
-              <div class="product-spec product-spec-wide"><span class="spec-label">Характеристики</span><span class="spec-value">Розміри, форма та оздоблення — за погодженням із замовником</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc091">Опис</span><span class="spec-value" data-i18n="pc049">Дамаський клинок, чорне руків'я з обмоткою, піхви зі шкіри з гравіруванням на устьі.</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc035">Багатошарова (дамаська)</span></div>
+              <div class="product-spec product-spec-wide"><span class="spec-label" data-i18n="pc118">Характеристики</span><span class="spec-value" data-i18n="pc096">Розміри, форма та оздоблення — за погодженням із замовником</span></div>
             </div>
-            <div class="product-price">На замовлення</div>
+            <div class="product-price" data-i18n="pc081">На замовлення</div>
           </div>
         </div>
         </div>
@@ -2655,14 +2651,8 @@ footer {
     </div>
 
     <div class="gallery-videos">
-      <a href="https://www.youtube.com/watch?v=8X9kN_moHIQ" target="_blank" rel="noopener" class="gallery-video">
-        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/8X9kN_moHIQ/hqdefault.jpg" alt="">
-        <span class="gallery-video-play"></span>
-      </a>
-      <a href="https://www.youtube.com/watch?v=r-lYpc8rdLU" target="_blank" rel="noopener" class="gallery-video">
-        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/r-lYpc8rdLU/hqdefault.jpg" alt="">
-        <span class="gallery-video-play"></span>
-      </a>
+      <div class="gallery-video"><iframe src="https://www.youtube-nocookie.com/embed/8X9kN_moHIQ" title="Відео ViY" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="gallery-video"><iframe src="https://www.youtube-nocookie.com/embed/r-lYpc8rdLU" title="Відео ViY" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </div>
 
     <a href="https://www.facebook.com/blacksmithviy/photos_albums" target="_blank" rel="noopener" class="gallery-cta">
@@ -3280,6 +3270,421 @@ document.addEventListener("DOMContentLoaded", function() {
     swords_p4: "<strong>The VIY forge offers swords of its own making.</strong> Materials — homogeneous and multilayer (Damascus) steels. Sizes, decoration and shapes — agreed with the customer.",
     swords_subcat: "Swords of our own making",
     work_intro: "<ul class='work-intro-list'><li>Ready-made pieces</li><li>Made-to-order pieces</li><li>Custom projects</li><li>Author\u2019s works</li></ul><span class='intro-foot'>Every piece is handmade — from sketch to blade.</span>"
+  });
+
+  Object.assign(translations.ua, {
+    pc000: "0,6 мм",
+    pc001: "0,8 мм",
+    pc002: "1,5 мм",
+    pc003: "145 / 26 / 4",
+    pc004: "155 / 26 / 4 або 175 / 26 / 4",
+    pc005: "165 / 26 / 4,5 / 285",
+    pc006: "165 мм від гарди",
+    pc007: "180 / 30 / 5 / 305",
+    pc008: "180 мм від гарди",
+    pc009: "19–20° на сторону",
+    pc010: "20° на сторону",
+    pc011: "32 / 26 мм",
+    pc012: "33 / 26 мм",
+    pc013: "35–45 днів",
+    pc014: "40Х13",
+    pc015: "50–51 HRC",
+    pc016: "530 г",
+    pc017: "54–55 HRC",
+    pc018: "58–59 HRC",
+    pc019: "59–60 HRC",
+    pc020: "6 / 3 мм",
+    pc021: "60 HRC",
+    pc022: "7 / 3 мм",
+    pc023: "720–730 г",
+    pc024: "745 г (без піхов)",
+    pc025: "820 г (без піхов)",
+    pc026: "820 мм",
+    pc027: "850 мм",
+    pc028: "850–870 г (без піхов)",
+    pc029: "90 / 28 / 4",
+    pc030: "90 / 30 / 4",
+    pc031: "9ХФА",
+    pc032: "N690",
+    pc033: "«Береженого Бог береже, а козака шабля стереже»",
+    pc034: "АВС пластик",
+    pc035: "Багатошарова (дамаська)",
+    pc036: "Бронза",
+    pc037: "Бронза, художнє литво",
+    pc038: "Вага клинка",
+    pc039: "Вага шаблі",
+    pc040: "Вироби <strong>в наявності</strong>",
+    pc041: "Вироби, що виготовляються індивідуально на ваше замовлення.",
+    pc042: "Вузький + широкий",
+    pc043: "Гарда",
+    pc044: "Гарда/навершшя",
+    pc045: "Гарда/тильник",
+    pc046: "Гомогенна / дамаська",
+    pc047: "Гравірування",
+    pc048: "Дамаський клинок з гравіруванням, бронзові деталі, навершшя з художнім декором.",
+    pc049: "Дамаський клинок, чорне руків'я з обмоткою, піхви зі шкіри з гравіруванням на устьі.",
+    pc050: "Дерево (яблуня/горіх)",
+    pc051: "Дерево (яблуня/горіх) + шкіра",
+    pc052: "Дерево (яблуня/горіх) · шкіра",
+    pc053: "Дерево + шкіра (чорна)",
+    pc054: "Дерево · стяжний монтаж",
+    pc055: "Дерево · шкіра · стяжний монтаж",
+    pc056: "Довжина клинка",
+    pc057: "Дол",
+    pc058: "Дуб",
+    pc059: "Ефес",
+    pc060: "Зведення",
+    pc061: "Кайдекс",
+    pc062: "Катана",
+    pc063: "Катана · ручна робота",
+    pc064: "Кинджал «Гном»",
+    pc065: "Клинок з лінією загартування (хамон), оплітка руків'я, цуба, дерев'яні піхви (сая).",
+    pc066: "Кліпса",
+    pc067: "Кована · на замовлення",
+    pc068: "Кована · на замовлення · драгунка · чорна шкіра, гравірування",
+    pc069: "Кована · на замовлення · за мотивами шашки РІА 1881 р. (драгунка)",
+    pc070: "Кована · на замовлення · за мотивами шашки РІА зразка 1881 р.",
+    pc071: "Кована шабля",
+    pc072: "Ковка",
+    pc073: "Комплект",
+    pc074: "Кут РК",
+    pc075: "Литво, бронза",
+    pc076: "Меч «Модель 1»",
+    pc077: "Меч «Модель 2»",
+    pc078: "Меч · дамаська сталь · ручна робота",
+    pc079: "Монтаж",
+    pc080: "На <strong>замовлення</strong>",
+    pc081: "На замовлення",
+    pc082: "Набірна шкіра",
+    pc083: "Накладки",
+    pc084: "Наскрізний",
+    pc085: "Наскрізний, гвинт-склобій",
+    pc086: "Ніж «Дикий»",
+    pc087: "Ніж «Польовий»",
+    pc088: "Ніж «Пумба»",
+    pc089: "Ніж «Тичковий»",
+    pc090: "Ніж тактичний «Хорнет»",
+    pc091: "Опис",
+    pc092: "Паракорд",
+    pc093: "Поліуретан",
+    pc094: "Піхви",
+    pc095: "Розміри",
+    pc096: "Розміри, форма та оздоблення — за погодженням із замовником",
+    pc097: "Руків'я",
+    pc098: "Серійний кований на замовлення",
+    pc099: "Серійний тактичний · не кований",
+    pc100: "Серійні ковані ножі",
+    pc101: "Склобій",
+    pc102: "Сталева кліпса",
+    pc103: "Сталеві",
+    pc104: "Сталь",
+    pc105: "ТО",
+    pc106: "Тек-лок · Пластина для правки 400/600 · Кресало",
+    pc107: "Темляк",
+    pc108: "Термін",
+    pc109: "Технологія",
+    pc110: "Тильник",
+    pc111: "Товщина (моц/штих)",
+    pc112: "Точка балансу",
+    pc113: "У8 або Х12МФ (на вибір)",
+    pc114: "Фул танг",
+    pc115: "Фул танг · ріг лося · мозаїчні піни",
+    pc116: "Фурнітура піхов",
+    pc117: "Х12МФ",
+    pc118: "Характеристики",
+    pc119: "Художнє литво, бронза",
+    pc120: "Чепрак / віск",
+    pc121: "Шабля «Модель 1»",
+    pc122: "Шабля «Модель 2»",
+    pc123: "Шабля «Модель 3»",
+    pc124: "Шабля «Модель 4.1»",
+    pc125: "Шабля «Модель 4»",
+    pc126: "Ширина (моц/штих)",
+    pc127: "Широкий",
+    pc128: "Шкіра",
+    pc129: "від 1 250 ₴",
+    pc130: "від 2 100 ₴",
+    pc131: "від 2 500 ₴",
+    pc132: "від 5 200 ₴",
+    pc133: "від 6 500 ₴",
+    pc134: "від 6 800 ₴",
+    pc135: "до 750 г"
+  });
+  Object.assign(translations.pl, {
+    pc000: "0,6 mm",
+    pc001: "0,8 mm",
+    pc002: "1,5 mm",
+    pc003: "145 / 26 / 4",
+    pc004: "155 / 26 / 4 lub 175 / 26 / 4",
+    pc005: "165 / 26 / 4,5 / 285",
+    pc006: "165 mm od jelca",
+    pc007: "180 / 30 / 5 / 305",
+    pc008: "180 mm od jelca",
+    pc009: "19–20° na stronę",
+    pc010: "20° na stronę",
+    pc011: "32 / 26 mm",
+    pc012: "33 / 26 mm",
+    pc013: "35–45 dni",
+    pc014: "40X13",
+    pc015: "50–51 HRC",
+    pc016: "530 g",
+    pc017: "54–55 HRC",
+    pc018: "58–59 HRC",
+    pc019: "59–60 HRC",
+    pc020: "6 / 3 mm",
+    pc021: "60 HRC",
+    pc022: "7 / 3 mm",
+    pc023: "720–730 g",
+    pc024: "745 g (bez pochwy)",
+    pc025: "820 g (bez pochwy)",
+    pc026: "820 mm",
+    pc027: "850 mm",
+    pc028: "850–870 g (bez pochwy)",
+    pc029: "90 / 28 / 4",
+    pc030: "90 / 30 / 4",
+    pc031: "9KhFA",
+    pc032: "N690",
+    pc033: "„Strzeżonego Pan Bóg strzeże, a kozaka szabla strzeże”",
+    pc034: "Tworzywo ABS",
+    pc035: "Wielowarstwowa (damasceńska)",
+    pc036: "Brąz",
+    pc037: "Brąz, odlew artystyczny",
+    pc038: "Waga klingi",
+    pc039: "Waga szabli",
+    pc040: "Wyroby <strong>dostępne</strong>",
+    pc041: "Wyroby wykonywane indywidualnie na Twoje zamówienie.",
+    pc042: "Wąskie + szerokie",
+    pc043: "Jelec",
+    pc044: "Jelec / głowica",
+    pc045: "Jelec / nakładka",
+    pc046: "Homogeniczna / damasceńska",
+    pc047: "Grawerunek",
+    pc048: "Damasceńska klinga z grawerunkiem, brązowe detale, głowica z artystycznym zdobieniem.",
+    pc049: "Damasceńska klinga, czarna rękojeść z owijką, skórzana pochwa z grawerunkiem przy wylocie.",
+    pc050: "Drewno (jabłoń/orzech)",
+    pc051: "Drewno (jabłoń/orzech) + skóra",
+    pc052: "Drewno (jabłoń/orzech) · skóra",
+    pc053: "Drewno + skóra (czarna)",
+    pc054: "Drewno · montaż ściągany",
+    pc055: "Drewno · skóra · montaż ściągany",
+    pc056: "Długość klingi",
+    pc057: "Zbrocze",
+    pc058: "Dąb",
+    pc059: "Oprawa",
+    pc060: "Zbieg",
+    pc061: "Kydex",
+    pc062: "Katana",
+    pc063: "Katana · ręczna robota",
+    pc064: "Sztylet „Gnom”",
+    pc065: "Klinga z linią hartowania (hamon), owijka rękojeści, tsuba, drewniana pochwa (saya).",
+    pc066: "Klips",
+    pc067: "Kuta · na zamówienie",
+    pc068: "Kuta · na zamówienie · dragunka · czarna skóra, grawerunek",
+    pc069: "Kuta · na zamówienie · wg szaszki RIA 1881 (dragunka)",
+    pc070: "Kuta · na zamówienie · wg szaszki RIA wz. 1881",
+    pc071: "Szabla kuta",
+    pc072: "Kucie",
+    pc073: "Zestaw",
+    pc074: "Kąt ostrza",
+    pc075: "Odlew, brąz",
+    pc076: "Miecz „Model 1”",
+    pc077: "Miecz „Model 2”",
+    pc078: "Miecz · stal damasceńska · ręczna robota",
+    pc079: "Montaż",
+    pc080: "Na <strong>zamówienie</strong>",
+    pc081: "Na zamówienie",
+    pc082: "Skóra składana",
+    pc083: "Okładki",
+    pc084: "Przelotowy",
+    pc085: "Przelotowy, śruba-zbijak",
+    pc086: "Nóż „Dykyi”",
+    pc087: "Nóż „Polowy”",
+    pc088: "Nóż „Pumba”",
+    pc089: "Nóż „Tyczkowyj”",
+    pc090: "Nóż taktyczny „Hornet”",
+    pc091: "Opis",
+    pc092: "Paracord",
+    pc093: "Poliuretan",
+    pc094: "Pochwa",
+    pc095: "Wymiary",
+    pc096: "Wymiary, kształt i zdobienie — do uzgodnienia z klientem",
+    pc097: "Rękojeść",
+    pc098: "Seryjny kuty na zamówienie",
+    pc099: "Seryjny taktyczny · niekuty",
+    pc100: "Seryjne noże kute",
+    pc101: "Zbijak",
+    pc102: "Stalowy klips",
+    pc103: "Stalowe",
+    pc104: "Stal",
+    pc105: "Obr. cieplna",
+    pc106: "Tek-lok · Płytka do ostrzenia 400/600 · Krzesiwo",
+    pc107: "Temblak",
+    pc108: "Termin",
+    pc109: "Technologia",
+    pc110: "Nakładka tylna",
+    pc111: "Grubość (nasada/sztych)",
+    pc112: "Punkt równowagi",
+    pc113: "U8 lub X12MF (do wyboru)",
+    pc114: "Full tang",
+    pc115: "Full tang · róg łosia · piny mozaikowe",
+    pc116: "Okucia pochwy",
+    pc117: "X12MF",
+    pc118: "Charakterystyka",
+    pc119: "Odlew artystyczny, brąz",
+    pc120: "Skóra czaprakowa / wosk",
+    pc121: "Szabla „Model 1”",
+    pc122: "Szabla „Model 2”",
+    pc123: "Szabla „Model 3”",
+    pc124: "Szabla „Model 4.1”",
+    pc125: "Szabla „Model 4”",
+    pc126: "Szerokość (nasada/sztych)",
+    pc127: "Szerokie",
+    pc128: "Skóra",
+    pc129: "od 1 250 ₴",
+    pc130: "od 2 100 ₴",
+    pc131: "od 2 500 ₴",
+    pc132: "od 5 200 ₴",
+    pc133: "od 6 500 ₴",
+    pc134: "od 6 800 ₴",
+    pc135: "do 750 g"
+  });
+  Object.assign(translations.en, {
+    pc000: "0.6 mm",
+    pc001: "0.8 mm",
+    pc002: "1.5 mm",
+    pc003: "145 / 26 / 4",
+    pc004: "155 / 26 / 4 or 175 / 26 / 4",
+    pc005: "165 / 26 / 4.5 / 285",
+    pc006: "165 mm from guard",
+    pc007: "180 / 30 / 5 / 305",
+    pc008: "180 mm from guard",
+    pc009: "19–20° per side",
+    pc010: "20° per side",
+    pc011: "32 / 26 mm",
+    pc012: "33 / 26 mm",
+    pc013: "35–45 days",
+    pc014: "40X13",
+    pc015: "50–51 HRC",
+    pc016: "530 g",
+    pc017: "54–55 HRC",
+    pc018: "58–59 HRC",
+    pc019: "59–60 HRC",
+    pc020: "6 / 3 mm",
+    pc021: "60 HRC",
+    pc022: "7 / 3 mm",
+    pc023: "720–730 g",
+    pc024: "745 g (without scabbard)",
+    pc025: "820 g (without scabbard)",
+    pc026: "820 mm",
+    pc027: "850 mm",
+    pc028: "850–870 g (without scabbard)",
+    pc029: "90 / 28 / 4",
+    pc030: "90 / 30 / 4",
+    pc031: "9KhFA",
+    pc032: "N690",
+    pc033: "“God guards the careful, and the sabre guards the Cossack”",
+    pc034: "ABS plastic",
+    pc035: "Multilayer (Damascus)",
+    pc036: "Bronze",
+    pc037: "Bronze, art casting",
+    pc038: "Blade weight",
+    pc039: "Sabre weight",
+    pc040: "<strong>In stock</strong>",
+    pc041: "Pieces made individually to your order.",
+    pc042: "Narrow + wide",
+    pc043: "Guard",
+    pc044: "Guard / pommel",
+    pc045: "Guard / butt cap",
+    pc046: "Homogeneous / Damascus",
+    pc047: "Engraving",
+    pc048: "Damascus blade with engraving, bronze details, pommel with artistic decor.",
+    pc049: "Damascus blade, black wrapped handle, leather scabbard engraved at the throat.",
+    pc050: "Wood (apple/walnut)",
+    pc051: "Wood (apple/walnut) + leather",
+    pc052: "Wood (apple/walnut) · leather",
+    pc053: "Wood + leather (black)",
+    pc054: "Wood · drawn through-tang",
+    pc055: "Wood · leather · through-tang",
+    pc056: "Blade length",
+    pc057: "Fuller",
+    pc058: "Oak",
+    pc059: "Hilt",
+    pc060: "Edge grind",
+    pc061: "Kydex",
+    pc062: "Katana",
+    pc063: "Katana · handmade",
+    pc064: "Dagger “Gnom”",
+    pc065: "Blade with hamon line, wrapped handle, tsuba, wooden scabbard (saya).",
+    pc066: "Clip",
+    pc067: "Forged · to order",
+    pc068: "Forged · to order · dragoon · black leather, engraving",
+    pc069: "Forged · to order · after the 1881 RIA shashka (dragoon)",
+    pc070: "Forged · to order · after the 1881 RIA shashka",
+    pc071: "Forged sabre",
+    pc072: "Forging",
+    pc073: "Kit",
+    pc074: "Edge angle",
+    pc075: "Casting, bronze",
+    pc076: "Sword “Model 1”",
+    pc077: "Sword “Model 2”",
+    pc078: "Sword · Damascus steel · handmade",
+    pc079: "Mounting",
+    pc080: "To <strong>order</strong>",
+    pc081: "To order",
+    pc082: "Stacked leather",
+    pc083: "Scales",
+    pc084: "Through-tang",
+    pc085: "Through-tang, screw pommel-nut",
+    pc086: "Knife “Dykyi”",
+    pc087: "Field knife “Polovy”",
+    pc088: "Knife “Pumba”",
+    pc089: "Knife “Tychkovyi”",
+    pc090: "Tactical knife “Hornet”",
+    pc091: "Description",
+    pc092: "Paracord",
+    pc093: "Polyurethane",
+    pc094: "Scabbard",
+    pc095: "Dimensions",
+    pc096: "Dimensions, shape and finish — agreed with the customer",
+    pc097: "Handle",
+    pc098: "Serial forged, to order",
+    pc099: "Serial tactical · not forged",
+    pc100: "Serial forged knives",
+    pc101: "Pommel nut",
+    pc102: "Steel clip",
+    pc103: "Steel",
+    pc104: "Steel",
+    pc105: "Heat treat",
+    pc106: "Tek-Lok · Sharpening plate 400/600 · Fire steel",
+    pc107: "Lanyard",
+    pc108: "Lead time",
+    pc109: "Technology",
+    pc110: "Butt cap",
+    pc111: "Thickness (base/tip)",
+    pc112: "Balance point",
+    pc113: "U8 or X12MF (choice)",
+    pc114: "Full tang",
+    pc115: "Full tang · elk antler · mosaic pins",
+    pc116: "Scabbard fittings",
+    pc117: "X12MF",
+    pc118: "Specs",
+    pc119: "Art casting, bronze",
+    pc120: "Saddle leather / wax",
+    pc121: "Sabre “Model 1”",
+    pc122: "Sabre “Model 2”",
+    pc123: "Sabre “Model 3”",
+    pc124: "Sabre “Model 4.1”",
+    pc125: "Sabre “Model 4”",
+    pc126: "Width (base/tip)",
+    pc127: "Wide",
+    pc128: "Leather",
+    pc129: "from 1 250 ₴",
+    pc130: "from 2 100 ₴",
+    pc131: "from 2 500 ₴",
+    pc132: "from 5 200 ₴",
+    pc133: "from 6 500 ₴",
+    pc134: "from 6 800 ₴",
+    pc135: "up to 750 g"
   });
 
   function setLang(lang) {
