@@ -1955,7 +1955,6 @@ footer {
   .swords-video-grid { grid-template-columns: 1fr 1fr 1fr; }
   @media (max-width: 760px) { .swords-video-grid { grid-template-columns: 1fr; } }
   /* Edit: master photo in bio */
-  .about-text { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
   .about-right { display: flex; flex-direction: column; gap: 1.75rem; justify-content: flex-start; }
   .about-right .about-stats { margin: 0; }
   .about-photo { position: relative; }
@@ -2004,6 +2003,16 @@ footer {
   .pi-slide.has-backdrop::before { content: '' !important; display: block !important; position: absolute; inset: 0; background-image: inherit; background-size: cover; background-position: center; filter: blur(22px) brightness(0.55) saturate(1.1); transform: scale(1.2); z-index: 0; }
   /* Edit: direction cards centered text after removing numbers */
   .work-direction { justify-content: flex-start; }
+  /* Edit: about block full width, photo far right, text stretched */
+  .about .container { max-width: none !important; }
+  .about-grid { width: 100% !important; max-width: none !important; align-items: stretch !important; }
+  .about-text { display: flex; flex-direction: column; justify-content: space-between; }
+  .about-right { display: flex; flex-direction: column; gap: 1.75rem; }
+  .about-right .about-stats { margin: 0; }
+  .about-photo { position: relative; }
+  .about-photo img { width: 100%; height: auto; display: block; border: none;
+    -webkit-mask-image: radial-gradient(ellipse 80% 96% at 50% 50%, #000 60%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 96% at 50% 50%, #000 60%, transparent 100%); }
 </style>
 </head>
 <body>
@@ -2086,7 +2095,7 @@ footer {
 <section class="about" id="about" data-bg-scene="2" style="padding: 4rem 2.5rem;">
 
   <div class="container">
-    <div class="about-grid" style="grid-template-columns:0.72fr 1.28fr; gap:3rem; align-items:stretch;">
+    <div class="about-grid" style="grid-template-columns:1fr 1fr; gap:4rem; align-items:stretch;">
       <div class="about-text">
         <div class="eyebrow"><span data-i18n="about_label">Майстер</span></div>
         <h2 data-i18n="about_title">Андрій <strong>Струневич</strong></h2>
