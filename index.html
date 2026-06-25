@@ -1999,6 +1999,12 @@ footer {
   .work-category-desc { text-align: right; }
   .section-head-row { align-items: center; }
   .section-head-row .section-intro { text-align: right; }
+  /* Edit: per-image blurred backdrop (full image, blurred bg) */
+  .pi-slide.has-backdrop { background-size: cover; background-position: center; }
+  .pi-slide.has-backdrop img { object-fit: contain !important; position: relative; z-index: 1; }
+  .pi-slide.has-backdrop::before { content: '' !important; display: block !important; position: absolute; inset: 0; background-image: inherit; background-size: cover; background-position: center; filter: blur(22px) brightness(0.55) saturate(1.1); transform: scale(1.2); z-index: 0; }
+  /* Edit: direction cards centered text after removing numbers */
+  .work-direction { justify-content: flex-start; }
 </style>
 </head>
 <body>
@@ -2124,10 +2130,10 @@ footer {
         </div>
       </div>
       <div class="work-directions">
-        <div class="work-direction"><span class="wd-num">01</span><span data-i18n="wd_ready">Готові вироби</span></div>
-        <div class="work-direction"><span class="wd-num">02</span><span data-i18n="wd_order">Вироби на замовлення</span></div>
-        <div class="work-direction"><span class="wd-num">03</span><span data-i18n="wd_custom">Індивідуальні проєкти</span></div>
-        <div class="work-direction"><span class="wd-num">04</span><span data-i18n="wd_author">Авторські роботи</span></div>
+        <div class="work-direction"><span data-i18n="wd_ready">Готові вироби</span></div>
+        <div class="work-direction"><span data-i18n="wd_order">Вироби на замовлення</span></div>
+        <div class="work-direction"><span data-i18n="wd_custom">Індивідуальні проєкти</span></div>
+        <div class="work-direction"><span data-i18n="wd_author">Авторські роботи</span></div>
       </div>
       <p class="work-foot" data-i18n="work_foot">Кожен виріб — ручна робота від ескізу до клинка.</p>
     </div>
@@ -2456,13 +2462,13 @@ footer {
 
         <div class="product-card">
           <div class="product-image">
-            <div class="pi-slide active"><img loading="lazy" decoding="async" src="images/img165.jpg" alt="Шабля «Модель 4»"></div>
+            <div class="pi-slide active has-backdrop" style="background-image:url('images/img213.jpg')"><img loading="lazy" decoding="async" src="images/img213.jpg" alt="Шабля «Модель 4»"></div>
             <div class="pi-slide"><img loading="lazy" decoding="async" src="images/img167.jpg" alt="Шабля «Модель 4»"></div>
             <div class="pi-slide"><img loading="lazy" decoding="async" src="images/img169.jpg" alt="Шабля «Модель 4»"></div>
             <div class="pi-slide"><img loading="lazy" decoding="async" src="images/img171.jpg" alt="Шабля «Модель 4»"></div>
           </div>
           <div class="product-thumbs" style="grid-template-columns: repeat(4, 1fr)">
-            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img166.jpg" alt=""></div>
+            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img214.jpg" alt=""></div>
             <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img168.jpg" alt=""></div>
             <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img170.jpg" alt=""></div>
             <div class="product-thumb" data-slide="3" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/img172.jpg" alt=""></div>
