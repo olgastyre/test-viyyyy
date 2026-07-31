@@ -2613,6 +2613,47 @@ footer {
             </div>
           </div>
         </div>
+<!-- ШАБЛЯ МОДЕЛЬ 5 — готова, чекає на фото. Розкоментувати після додавання images/shabla-m5-*.jpg
+        <div class="product-card">
+          <div class="product-image">
+            <div class="pi-slide active"><img loading="lazy" decoding="async" src="images/shabla-m5-1.jpg" alt="Кована шабля «Модель 5» ручної роботи"></div>
+            <div class="pi-slide"><img loading="lazy" decoding="async" src="images/shabla-m5-2.jpg" alt="Кована шабля «Модель 5» ручної роботи"></div>
+            <div class="pi-slide"><img loading="lazy" decoding="async" src="images/shabla-m5-3.jpg" alt="Кована шабля «Модель 5» ручної роботи"></div>
+            <div class="pi-slide"><img loading="lazy" decoding="async" src="images/shabla-m5-4.jpg" alt="Кована шабля «Модель 5» ручної роботи"></div>
+          </div>
+          <div class="product-thumbs" style="grid-template-columns: repeat(4, 1fr)">
+            <div class="product-thumb active" data-slide="0" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/shabla-m5-1t.jpg" alt=""></div>
+            <div class="product-thumb" data-slide="1" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/shabla-m5-2t.jpg" alt=""></div>
+            <div class="product-thumb" data-slide="2" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/shabla-m5-3t.jpg" alt=""></div>
+            <div class="product-thumb" data-slide="3" onclick="switchSlide(this, event)"><img loading="lazy" decoding="async" src="images/shabla-m5-4t.jpg" alt=""></div>
+          </div>
+          <div class="product-body">
+            <div class="product-name" data-i18n="pc200">Шабля «Модель 5»</div>
+            <div class="product-type" data-i18n="pc067">Кована · на замовлення</div>
+            <div class="product-specs">
+              <div class="product-spec"><span class="spec-label" data-i18n="pc104">Сталь</span><span class="spec-value" data-i18n="pc201">65Г · ковка</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc105">ТО</span><span class="spec-value" data-i18n="pc202">52–53 HRC</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc056">Довжина клинка</span><span class="spec-value" data-i18n="pc203">880 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc204">Загальна довжина</span><span class="spec-value" data-i18n="pc205">1020 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc206">Ширина клинка</span><span class="spec-value" data-i18n="pc207">38 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc208">Товщина</span><span class="spec-value" data-i18n="pc209">2 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc214">Форма клинка</span><span class="spec-value" data-i18n="pc215">Т-подібна</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc210">Обух</span><span class="spec-value" data-i18n="pc211">Наклепаний · 7 мм біля гарди</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc212">Ширина ялмані</span><span class="spec-value" data-i18n="pc213">44 мм</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc039">Вага шаблі</span><span class="spec-value" data-i18n="pc216">870 г (без піхов)</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc112">Точка балансу</span><span class="spec-value" data-i18n="pc217">230 мм від гарди</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc043">Гарда</span><span class="spec-value" data-i18n="pc218">Латунь · зірка</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc097">Руків'я</span><span class="spec-value" data-i18n="pc219">Дерево · мідні заклепки</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc094">Піхви</span><span class="spec-value" data-i18n="pc220">Під замовлення покупця</span></div>
+              <div class="product-spec"><span class="spec-label" data-i18n="pc222">Піхви (окремо)</span><span class="spec-value" data-i18n="pc223">від 4 500 до 10 000 ₴</span></div>
+            </div>
+            <div class="product-price-block">
+              <div class="product-price" data-i18n="pc221">30 000 ₴</div>
+              <div class="product-price-note" data-i18n="pc224">без піхов</div>
+            </div>
+          </div>
+        </div>
+-->
         </div>
       </div>
 
@@ -3802,6 +3843,11 @@ document.addEventListener("DOMContentLoaded", function() {
   Object.assign(translations.ua, { gallery_more_fb: "Більше робіт у Facebook →" });
   Object.assign(translations.pl, { gallery_more_fb: "Więcej prac na Facebooku →" });
   Object.assign(translations.en, { gallery_more_fb: "More work on Facebook →" });
+
+  // --- Шабля Модель 5 ---
+  Object.assign(translations.ua, { pc200: "Шабля «Модель 5»", pc201: "65Г · ковка", pc202: "52–53 HRC", pc203: "880 мм", pc204: "Загальна довжина", pc205: "1020 мм", pc206: "Ширина клинка", pc207: "38 мм", pc208: "Товщина", pc209: "2 мм", pc210: "Обух", pc211: "Наклепаний · 7 мм біля гарди", pc212: "Ширина ялмані", pc213: "44 мм", pc214: "Форма клинка", pc215: "Т-подібна", pc216: "870 г (без піхов)", pc217: "230 мм від гарди", pc218: "Латунь · зірка", pc219: "Дерево · мідні заклепки", pc220: "Під замовлення покупця", pc221: "30 000 ₴", pc222: "Піхви (окремо)", pc223: "від 4 500 до 10 000 ₴", pc224: "без піхов" });
+  Object.assign(translations.pl, { pc200: "Szabla „Model 5”", pc201: "65G · kucie", pc202: "52–53 HRC", pc203: "880 mm", pc204: "Długość całkowita", pc205: "1020 mm", pc206: "Szerokość klingi", pc207: "38 mm", pc208: "Grubość", pc209: "2 mm", pc210: "Grzbiet", pc211: "Nitowany · 7 mm przy jelcu", pc212: "Szerokość jelmania", pc213: "44 mm", pc214: "Kształt klingi", pc215: "Teowa (T)", pc216: "870 g (bez pochwy)", pc217: "230 mm od jelca", pc218: "Mosiądz · gwiazda", pc219: "Drewno · miedziane nity", pc220: "Na zamówienie klienta", pc221: "30 000 ₴", pc222: "Pochwa (osobno)", pc223: "od 4 500 do 10 000 ₴", pc224: "bez pochwy" });
+  Object.assign(translations.en, { pc200: "Sabre “Model 5”", pc201: "65G · forged", pc202: "52–53 HRC", pc203: "880 mm", pc204: "Total length", pc205: "1020 mm", pc206: "Blade width", pc207: "38 mm", pc208: "Thickness", pc209: "2 mm", pc210: "Spine", pc211: "Peened · 7 mm at the guard", pc212: "Yelman width", pc213: "44 mm", pc214: "Blade shape", pc215: "T-shaped", pc216: "870 g (without scabbard)", pc217: "230 mm from guard", pc218: "Brass · star", pc219: "Wood · copper rivets", pc220: "Made to the customer's order", pc221: "30 000 ₴", pc222: "Scabbard (separately)", pc223: "from 4 500 to 10 000 ₴", pc224: "without scabbard" });
 
   function setLang(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
