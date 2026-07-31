@@ -2092,6 +2092,61 @@ footer {
   .gallery-modal-fb{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;color:var(--text-dim);font-size:0.85rem;text-decoration:none;border-bottom:1px solid transparent;}
   .gallery-modal-fb:hover{color:var(--ember);border-color:var(--ember);}
   @media (max-width:600px){.gallery-modal-inner{padding:3.5rem 0.9rem 3rem;}.gallery-modal-grid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:0.4rem;}}
+
+  /* ===== Compact video tiles + modal ===== */
+  .video-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin:1.5rem 0 3rem;}
+  .gallery-videos.video-tiles{grid-template-columns:repeat(2,1fr);max-width:560px;}
+  .video-tile{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;overflow:hidden;
+    border:1px solid var(--line);border-radius:3px;background:#0a0a0a;cursor:pointer;
+    transition:border-color var(--transition),transform var(--transition);}
+  .video-tile:hover{border-color:var(--ember);transform:translateY(-2px);}
+  .video-tile img{width:100%;height:100%;object-fit:cover;display:block;opacity:0.78;transition:opacity var(--transition);}
+  .video-tile:hover img{opacity:1;}
+  .video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:38px;height:38px;border-radius:50%;background:rgba(10,10,10,0.66);
+    border:1px solid rgba(240,236,226,0.55);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);}
+  .video-play::after{content:'';position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);
+    border-style:solid;border-width:7px 0 7px 12px;border-color:transparent transparent transparent #f0ece2;}
+  .video-tile:hover .video-play{background:rgba(168,122,74,0.9);border-color:var(--ember);}
+  .video-modal{position:fixed;inset:0;z-index:1100;background:rgba(5,6,8,0.96);
+    display:none;align-items:center;justify-content:center;padding:1.5rem;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+  .video-modal.open{display:flex;animation:lightboxIn 0.3s ease;}
+  .video-modal-box{position:relative;width:100%;max-width:1000px;aspect-ratio:16/9;background:#000;}
+  .video-modal-box>video,.video-modal-box>iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;}
+  .video-modal-close{position:fixed;top:1rem;right:1rem;width:44px;height:44px;border-radius:50%;
+    background:rgba(15,17,22,0.9);border:1px solid var(--line);color:var(--text);
+    font-size:1.5rem;line-height:1;cursor:pointer;z-index:1101;}
+  .video-modal-close:hover{border-color:var(--ember);color:var(--ember);}
+  @media (max-width:600px){
+    .video-tiles{gap:0.5rem;margin:1.25rem 0 2.25rem;}
+    .gallery-videos.video-tiles{grid-template-columns:repeat(2,1fr);}
+    .video-play{width:30px;height:30px;}
+    .video-play::after{border-width:6px 0 6px 10px;}
+    .video-modal{padding:0.75rem;}
+  }
+
+  /* ===== Sticky mobile CTA: hide over hero & contact ===== */
+  .mobile-cta{transition:opacity 0.25s ease,transform 0.25s ease;}
+  .mobile-cta.is-hidden{opacity:0;transform:translateY(140%);pointer-events:none;}
+
+  /* ===== Directions are real links ===== */
+  .work-direction{text-decoration:none;color:inherit;cursor:pointer;}
+  .work-direction:hover span:last-child{color:var(--ember);}
+
+  /* anchor offset under fixed nav */
+  #ready,#tomake,#gallery,#connect{scroll-margin-top:70px;}
+
+  /* ===== Mobile: About block tidy-up ===== */
+  @media (max-width:768px){
+    .about-right .about-stats{margin:0 !important;width:100% !important;}
+    .about-photo img{width:100% !important;margin:0 !important;
+      -webkit-mask-image:radial-gradient(ellipse 82% 96% at 50% 50%, #000 62%, transparent 100%) !important;
+      mask-image:radial-gradient(ellipse 82% 96% at 50% 50%, #000 62%, transparent 100%) !important;}
+    .about-stats{grid-template-columns:repeat(3,1fr) !important;gap:0.75rem !important;text-align:left;}
+    .stat-num{font-size:1.5rem !important;}
+    .stat-label{font-size:0.68rem !important;letter-spacing:0.06em !important;}
+  }
 </style>
 </head>
 <body>
@@ -2217,16 +2272,16 @@ footer {
         </div>
       </div>
       <div class="work-directions">
-        <div class="work-direction"><span data-i18n="wd_ready">Готові вироби</span></div>
-        <div class="work-direction"><span data-i18n="wd_order">Вироби на замовлення</span></div>
-        <div class="work-direction"><span data-i18n="wd_custom">Індивідуальні проєкти</span></div>
-        <div class="work-direction"><span data-i18n="wd_author">Авторські роботи</span></div>
+        <a href="#ready" class="work-direction"><span data-i18n="wd_ready">Готові вироби</span></a>
+        <a href="#tomake" class="work-direction"><span data-i18n="wd_order">Вироби на замовлення</span></a>
+        <a href="#connect" class="work-direction"><span data-i18n="wd_custom">Індивідуальні проєкти</span></a>
+        <a href="#gallery" class="work-direction"><span data-i18n="wd_author">Авторські роботи</span></a>
       </div>
       <p class="work-foot" data-i18n="work_foot">Кожен виріб — ручна робота від ескізу до клинка.</p>
     </div>
 
     <!-- CATEGORY 1: IN STOCK -->
-    <div class="work-category">
+    <div class="work-category" id="ready">
       <div class="work-category-head">
         <div>
           <h3 class="work-category-title" data-i18n="pc040">Вироби <strong>в наявності</strong></h3>
@@ -2424,7 +2479,7 @@ footer {
     </div>
 
     <!-- CATEGORY 2: ON ORDER -->
-    <div class="work-category">
+    <div class="work-category" id="tomake">
       <div class="work-category-head">
         <div>
           <h3 class="work-category-title" data-i18n="pc080">На <strong>замовлення</strong></h3>
@@ -2757,16 +2812,19 @@ footer {
       <p data-i18n="swords_p4"><strong>Кузня VIY пропонує мечі власного виробництва.</strong> Матеріали — гомогенні та багатошарові (дамаські) сталі. Розміри, оздоблення та форми — за погодженням із замовником.</p>
     </div>
 
-    <div class="swords-video-grid">
-      <video class="swords-video" controls muted preload="metadata" playsinline>
-        <source src="media/sword-forging-1.mp4" type="video/mp4">
-      </video>
-      <video class="swords-video" controls muted preload="metadata" playsinline>
-        <source src="media/sword-forging-2.mp4" type="video/mp4">
-      </video>
-      <video class="swords-video" controls muted preload="metadata" playsinline>
-        <source src="media/sword-forging-3.mp4" type="video/mp4">
-      </video>
+    <div class="video-tiles">
+      <button type="button" class="video-tile" data-mp4="media/sword-forging-1.mp4" aria-label="Відео: кування меча 1">
+        <img loading="lazy" decoding="async" src="images/forge-poster-1.jpg" alt="Кування меча — відео">
+        <span class="video-play" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="video-tile" data-mp4="media/sword-forging-2.mp4" aria-label="Відео: кування меча 2">
+        <img loading="lazy" decoding="async" src="images/forge-poster-2.jpg" alt="Кування меча — відео">
+        <span class="video-play" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="video-tile" data-mp4="media/sword-forging-3.mp4" aria-label="Відео: кування меча 3">
+        <img loading="lazy" decoding="async" src="images/forge-poster-3.jpg" alt="Кування меча — відео">
+        <span class="video-play" aria-hidden="true"></span>
+      </button>
     </div>
 
   </div>
@@ -2785,9 +2843,9 @@ footer {
       </div>
     </div>
 
-    <div class="gallery-videos">
-      <div class="gallery-video"><iframe src="https://www.youtube-nocookie.com/embed/8X9kN_moHIQ" title="Відео ViY" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="gallery-video"><iframe src="https://www.youtube-nocookie.com/embed/r-lYpc8rdLU" title="Відео ViY" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="video-tiles gallery-videos">
+      <button type="button" class="video-tile" data-yt="8X9kN_moHIQ" aria-label="Відео на YouTube"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/8X9kN_moHIQ/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="video-play" aria-hidden="true"></span></button>
+      <button type="button" class="video-tile" data-yt="r-lYpc8rdLU" aria-label="Відео на YouTube"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/r-lYpc8rdLU/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="video-play" aria-hidden="true"></span></button>
     </div>
 
     <a href="https://www.facebook.com/blacksmithviy/photos_albums" target="_blank" rel="noopener" class="gallery-cta">
@@ -3113,6 +3171,12 @@ footer {
   </button>
   <div class="lightbox-counter" id="lightboxCounter">1 / 3</div>
   <img loading="lazy" decoding="async" class="lightbox-image" id="lightboxImage" alt="">
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal" aria-hidden="true">
+  <button class="video-modal-close" id="videoModalClose" aria-label="Закрити">&times;</button>
+  <div class="video-modal-box" id="videoModalBox"></div>
 </div>
 
 <!-- CATEGORY GALLERY MODAL -->
@@ -4137,6 +4201,46 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener('keydown', function(e){
     if (e.key==='Escape' && galModal && galModal.classList.contains('open') && !lbOverlay.classList.contains('open')) closeCategory();
   });
+
+  // ===== Video tiles -> modal player (nothing loads until clicked) =====
+  const vmodal=document.getElementById('videoModal');
+  const vbox=document.getElementById('videoModalBox');
+  const vclose=document.getElementById('videoModalClose');
+  function openVideo(html){
+    vbox.innerHTML=html;
+    vmodal.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeVideo(){
+    vmodal.classList.remove('open');
+    vbox.innerHTML='';
+    if(!lbOverlay.classList.contains('open')) document.body.style.overflow='';
+  }
+  document.querySelectorAll('.video-tile').forEach(function(t){
+    t.addEventListener('click',function(){
+      const mp4=t.getAttribute('data-mp4'), yt=t.getAttribute('data-yt');
+      if(mp4) openVideo('<video src="'+mp4+'" controls autoplay playsinline></video>');
+      else if(yt) openVideo('<iframe src="https://www.youtube-nocookie.com/embed/'+yt+'?autoplay=1&rel=0" title="Відео ViY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    });
+  });
+  if(vclose) vclose.addEventListener('click',closeVideo);
+  if(vmodal) vmodal.addEventListener('click',function(e){ if(e.target===vmodal) closeVideo(); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&vmodal&&vmodal.classList.contains('open')) closeVideo();
+  });
+
+  // ===== Sticky mobile CTA: hide while hero or contact is on screen =====
+  const mcta=document.querySelector('.mobile-cta');
+  if(mcta&&'IntersectionObserver' in window){
+    const zones=[document.querySelector('.hero'),document.getElementById('connect')].filter(Boolean);
+    const vis=new Set();
+    const io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ en.isIntersecting?vis.add(en.target):vis.delete(en.target); });
+      mcta.classList.toggle('is-hidden', vis.size>0);
+    },{threshold:0.25});
+    zones.forEach(function(z){ io.observe(z); });
+    mcta.classList.add('is-hidden');
+  }
 
   // Nav background on scroll
   const navEl = document.querySelector('nav');
