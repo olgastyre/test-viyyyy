@@ -2077,6 +2077,21 @@ footer {
   .about-photo img { width: 75%; height: auto; display: block; margin-left: auto; margin-right: 5%; border: none;
     -webkit-mask-image: radial-gradient(ellipse 56% 94% at 50% 50%, #000 40%, transparent 100%);
     mask-image: radial-gradient(ellipse 56% 94% at 50% 50%, #000 40%, transparent 100%); }
+
+  /* ===== On-site category gallery modal ===== */
+  .gallery-modal{position:fixed;inset:0;z-index:900;background:rgba(8,8,8,0.975);display:none;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .gallery-modal.open{display:block;animation:lightboxIn 0.3s ease;}
+  .gallery-modal-inner{max-width:1200px;margin:0 auto;padding:4.5rem 1.5rem 4rem;}
+  .gallery-modal-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.75rem;border-bottom:1px solid var(--line);padding-bottom:1.1rem;}
+  .gallery-modal-title{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:300;color:var(--text);letter-spacing:-0.02em;margin:0;}
+  .gallery-modal-close{flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-bright);background:transparent;color:var(--text);font-size:1.6rem;line-height:1;cursor:pointer;transition:all var(--transition);}
+  .gallery-modal-close:hover{border-color:var(--ember);color:var(--ember);}
+  .gallery-modal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.6rem;}
+  .gallery-modal-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:4px;cursor:pointer;background:var(--bg-soft);opacity:0.92;transition:transform var(--transition),opacity var(--transition);}
+  .gallery-modal-grid img:hover{transform:scale(1.03);opacity:1;}
+  .gallery-modal-fb{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;color:var(--text-dim);font-size:0.85rem;text-decoration:none;border-bottom:1px solid transparent;}
+  .gallery-modal-fb:hover{color:var(--ember);border-color:var(--ember);}
+  @media (max-width:600px){.gallery-modal-inner{padding:3.5rem 0.9rem 3rem;}.gallery-modal-grid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:0.4rem;}}
 </style>
 </head>
 <body>
@@ -2727,7 +2742,7 @@ footer {
           <div class="eyebrow"><span data-i18n="gallery_label">Портфоліо</span></div>
           <h2 data-i18n="gallery_title">Усі <strong>роботи</strong></h2>
         </div>
-        <p class="section-intro" data-i18n="gallery_intro">Архів робіт майстра — десятки альбомів у Facebook, від ранніх ножів до останніх проєктів.</p>
+        <p class="section-intro" data-i18n="gallery_intro">Архів робіт майстра — оберіть категорію й перегляньте фото прямо на сайті.</p>
       </div>
     </div>
 
@@ -2757,7 +2772,7 @@ footer {
     <div class="gallery-categories">
 
       <!-- 1. Булат — premium first -->
-      <a href="https://www.facebook.com/media/set/?set=a.2890150291251894&type=3" target="_blank" rel="noopener" class="gallery-category" data-premium="true">
+      <a href="#gallery" data-gallery="bulat" data-fb="https://www.facebook.com/media/set/?set=a.2890150291251894&type=3" class="gallery-category" data-premium="true">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Bulat — short broad blade with wavy pattern -->
           <path d="M6 22 L26 18 L30 20 L26 22 L6 22 Z"/>
@@ -2772,7 +2787,7 @@ footer {
       </a>
 
       <!-- 2. Дамаск — premium -->
-      <a href="https://www.facebook.com/media/set/?set=a.3038451519755103&type=3" target="_blank" rel="noopener" class="gallery-category" data-premium="true">
+      <a href="#gallery" data-gallery="damask" data-fb="https://www.facebook.com/media/set/?set=a.3038451519755103&type=3" class="gallery-category" data-premium="true">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Damascus — blade with characteristic wave/layered pattern -->
           <path d="M4 22 L28 19 L32 20.5 L28 22 L4 22 Z"/>
@@ -2787,7 +2802,7 @@ footer {
       </a>
 
       <!-- 3. Мечі -->
-      <a href="https://www.facebook.com/media/set/?set=a.2847937102139880&type=3" target="_blank" rel="noopener" class="gallery-category" data-premium="true">
+      <a href="#gallery" data-gallery="swords" data-fb="https://www.facebook.com/media/set/?set=a.2847937102139880&type=3" class="gallery-category" data-premium="true">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Long straight sword with crossguard -->
           <path d="M2 20 L26 19 L30 20 L26 21 L2 20 Z"/>
@@ -2801,7 +2816,7 @@ footer {
       </a>
 
       <!-- 4. Шаблі -->
-      <a href="https://www.facebook.com/media/set/?set=a.2120408734892724&type=3" target="_blank" rel="noopener" class="gallery-category" data-premium="true">
+      <a href="#gallery" data-gallery="sabres" data-fb="https://www.facebook.com/media/set/?set=a.2120408734892724&type=3" class="gallery-category" data-premium="true">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Curved sabre -->
           <path d="M3 24 Q15 16 27 19 L31 20.5 L27 22 Q15 18 3 24 Z"/>
@@ -2814,7 +2829,7 @@ footer {
       </a>
 
       <!-- 5. Бойові ножі -->
-      <a href="https://www.facebook.com/media/set/?set=a.2674561829477409&type=3" target="_blank" rel="noopener" class="gallery-category">
+      <a href="#gallery" data-gallery="combat" data-fb="https://www.facebook.com/media/set/?set=a.2674561829477409&type=3" class="gallery-category">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Combat tanto-style knife -->
           <path d="M4 22 L20 22 L24 19 L28 20 L24 22 L20 22 Z"/>
@@ -2827,7 +2842,7 @@ footer {
       </a>
 
       <!-- 6. Мисливські ножі і мачете -->
-      <a href="https://www.facebook.com/media/set/?set=a.2674568786143380&type=3" target="_blank" rel="noopener" class="gallery-category">
+      <a href="#gallery" data-gallery="hunting" data-fb="https://www.facebook.com/media/set/?set=a.2674568786143380&type=3" class="gallery-category">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Hunting knife with drop point -->
           <path d="M5 22 L22 20 Q26 19.5 28 22 L22 23 L5 22 Z"/>
@@ -2841,7 +2856,7 @@ footer {
       </a>
 
       <!-- 7. Тесаки і палиці для ходьби -->
-      <a href="https://www.facebook.com/media/set/?set=a.2675510466049212&type=3" target="_blank" rel="noopener" class="gallery-category">
+      <a href="#gallery" data-gallery="cleavers" data-fb="https://www.facebook.com/media/set/?set=a.2675510466049212&type=3" class="gallery-category">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Cleaver / walking stick - thick broad blade -->
           <path d="M6 16 L22 16 L26 18 L26 22 L22 24 L6 24 Z"/>
@@ -2855,7 +2870,7 @@ footer {
       </a>
 
       <!-- 8. Сокири -->
-      <a href="https://www.facebook.com/media/set/?set=a.2120410771559187&type=3" target="_blank" rel="noopener" class="gallery-category">
+      <a href="#gallery" data-gallery="axes" data-fb="https://www.facebook.com/media/set/?set=a.2120410771559187&type=3" class="gallery-category">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Axe -->
           <path d="M16 12 Q8 14 6 20 Q8 26 16 28 L20 26 L20 14 Z"/>
@@ -2869,7 +2884,7 @@ footer {
       </a>
 
       <!-- 9. Кухня -->
-      <a href="https://www.facebook.com/media/set/?set=a.544194664386943&type=3" target="_blank" rel="noopener" class="gallery-category">
+      <a href="#gallery" data-gallery="kitchen" data-fb="https://www.facebook.com/media/set/?set=a.544194664386943&type=3" class="gallery-category">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Kitchen knife - chef's knife shape -->
           <path d="M4 22 Q14 16 26 18 L30 20 L26 22 L4 22 Z"/>
@@ -2883,7 +2898,7 @@ footer {
       </a>
 
       <!-- 10. Метальні ножі -->
-      <a href="https://www.facebook.com/media/set/?set=a.2965115773755345&type=3" target="_blank" rel="noopener" class="gallery-category">
+      <a href="#gallery" data-gallery="throwing" data-fb="https://www.facebook.com/media/set/?set=a.2965115773755345&type=3" class="gallery-category">
         <svg class="gallery-category-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
           <!-- Throwing knife - symmetric, narrow, no handle -->
           <path d="M4 20 L34 18 L37 20 L34 22 L4 20 Z"/>
@@ -3061,6 +3076,18 @@ footer {
   <img loading="lazy" decoding="async" class="lightbox-image" id="lightboxImage" alt="">
 </div>
 
+<!-- CATEGORY GALLERY MODAL -->
+<div class="gallery-modal" id="galleryModal" aria-hidden="true">
+  <div class="gallery-modal-inner">
+    <div class="gallery-modal-head">
+      <h3 class="gallery-modal-title" id="galleryModalTitle"></h3>
+      <button class="gallery-modal-close" id="galleryModalClose" aria-label="Закрити">&times;</button>
+    </div>
+    <div class="gallery-modal-grid" id="galleryModalGrid"></div>
+    <a class="gallery-modal-fb" id="galleryModalFb" href="#" target="_blank" rel="noopener"><span data-i18n="gallery_more_fb">Більше робіт у Facebook →</span></a>
+  </div>
+</div>
+
 <script>
 // Global slide switch — must be outside DOMContentLoaded
 function switchSlide(thumbEl, event) {
@@ -3128,7 +3155,7 @@ document.addEventListener("DOMContentLoaded", function() {
       cta_order: "Замовити", cta_discuss: "Обговорити", cta_follow: "Стежити",
       gallery_label: "Портфоліо",
       gallery_title: "Усі <strong>роботи</strong>",
-      gallery_intro: "Архів робіт майстра — десятки альбомів у Facebook, від ранніх ножів до останніх проєктів.",
+      gallery_intro: "Архів робіт майстра — оберіть категорію й перегляньте фото прямо на сайті.",
       gallery_cta_label: "Альбоми робіт",
       gallery_cta_title: "Дивитись усю <strong>галерею</strong>",
       gallery_cta_sub: "Facebook · @blacksmithviy",
@@ -3208,7 +3235,7 @@ document.addEventListener("DOMContentLoaded", function() {
       cta_order: "Zamów", cta_discuss: "Omów", cta_follow: "Śledź",
       gallery_label: "Portfolio",
       gallery_title: "Wszystkie <strong>prace</strong>",
-      gallery_intro: "Archiwum prac mistrza — dziesiątki albumów na Facebooku, od wczesnych noży po najnowsze projekty.",
+      gallery_intro: "Archiwum prac mistrza — wybierz kategorię i obejrzyj zdjęcia bezpośrednio na stronie.",
       gallery_cta_label: "Albumy prac",
       gallery_cta_title: "Zobacz całą <strong>galerię</strong>",
       gallery_cta_sub: "Facebook · @blacksmithviy",
@@ -3288,7 +3315,7 @@ document.addEventListener("DOMContentLoaded", function() {
       cta_order: "Order", cta_discuss: "Discuss", cta_follow: "Follow",
       gallery_label: "Portfolio",
       gallery_title: "All <strong>work</strong>",
-      gallery_intro: "Master's archive — dozens of Facebook albums, from the earliest knives to the latest projects.",
+      gallery_intro: "The master's archive — pick a category and browse the photos right here on the site.",
       gallery_cta_label: "Album archive",
       gallery_cta_title: "View the full <strong>gallery</strong>",
       gallery_cta_sub: "Facebook · @blacksmithviy",
@@ -3772,6 +3799,10 @@ document.addEventListener("DOMContentLoaded", function() {
   Object.assign(translations.pl, { wd_ready: "Gotowe wyroby", wd_order: "Wyroby na zamówienie", wd_custom: "Projekty indywidualne", wd_author: "Prace autorskie", work_foot: "Każdy wyrób — praca ręczna od szkicu do klinka." });
   Object.assign(translations.en, { wd_ready: "Ready-made pieces", wd_order: "Made-to-order pieces", wd_custom: "Custom projects", wd_author: "Author\u2019s works", work_foot: "Every piece is handmade — from sketch to blade." });
 
+  Object.assign(translations.ua, { gallery_more_fb: "Більше робіт у Facebook →" });
+  Object.assign(translations.pl, { gallery_more_fb: "Więcej prac na Facebooku →" });
+  Object.assign(translations.en, { gallery_more_fb: "More work on Facebook →" });
+
   function setLang(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -4014,6 +4045,54 @@ document.addEventListener("DOMContentLoaded", function() {
       else lightboxNext();
     }
   }, { passive: true });
+
+  // ===== On-site category gallery =====
+  const galleryCounts = {bulat:22,damask:18,swords:12,sabres:36,combat:44,hunting:18,cleavers:14,axes:12,kitchen:8,throwing:10};
+  const galModal = document.getElementById('galleryModal');
+  const galGrid = document.getElementById('galleryModalGrid');
+  const galTitle = document.getElementById('galleryModalTitle');
+  const galClose = document.getElementById('galleryModalClose');
+  const galFb = document.getElementById('galleryModalFb');
+  function openCategory(slug, title, fbUrl){
+    const count = galleryCounts[slug] || 0;
+    galTitle.textContent = title;
+    galGrid.innerHTML = '';
+    const full = [];
+    for (let i=1;i<=count;i++){
+      const fn = String(i).padStart(2,'0')+'.jpg';
+      full.push({src:'images/gallery/'+slug+'/'+fn, alt:title});
+    }
+    for (let i=0;i<count;i++){
+      const fn = String(i+1).padStart(2,'0')+'.jpg';
+      const im = document.createElement('img');
+      im.loading='lazy'; im.decoding='async';
+      im.src = 'images/gallery/'+slug+'/t/'+fn;
+      im.alt = title;
+      (function(idx){ im.addEventListener('click', function(){ openLightbox(full, idx); }); })(i);
+      galGrid.appendChild(im);
+    }
+    if (galFb){ if (fbUrl){ galFb.href=fbUrl; galFb.style.display='inline-flex'; } else { galFb.style.display='none'; } }
+    galModal.classList.add('open');
+    galModal.scrollTop = 0;
+    document.body.style.overflow='hidden';
+  }
+  function closeCategory(){
+    galModal.classList.remove('open');
+    if (!lbOverlay.classList.contains('open')) document.body.style.overflow='';
+  }
+  document.querySelectorAll('.gallery-category[data-gallery]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      const slug = a.getAttribute('data-gallery');
+      const nameEl = a.querySelector('.gallery-category-name');
+      openCategory(slug, nameEl ? nameEl.textContent.trim() : '', a.getAttribute('data-fb'));
+    });
+  });
+  if (galClose) galClose.addEventListener('click', closeCategory);
+  if (galModal) galModal.addEventListener('click', function(e){ if (e.target===galModal) closeCategory(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key==='Escape' && galModal && galModal.classList.contains('open') && !lbOverlay.classList.contains('open')) closeCategory();
+  });
 
   // Nav background on scroll
   const navEl = document.querySelector('nav');
