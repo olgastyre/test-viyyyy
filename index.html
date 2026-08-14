@@ -4251,6 +4251,93 @@ document.addEventListener("DOMContentLoaded", function() {
     mcta.classList.add('is-hidden');
   }
 
+  // ===== Click analytics (GA4 events) =====
+  function track(name, params){
+    try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch(e){}
+  }
+  function labelOf(el){
+    return (el.getAttribute('aria-label') || el.textContent || '').replace(/\s+/g,' ').trim().slice(0,80);
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a, button');
+    if (!a) return;
+
+    // --- Conversions: contact / messenger / phone ---
+    var href = a.getAttribute('href') || '';
+    if (a.classList.contains('contact-link') || /^tel:|^mailto:|wa\.me|t\.me/.test(href)) {
+      var ch = /^tel:/.test(href) ? 'phone'
+             : /wa\.me/.test(href) ? 'whatsapp'
+             : /t\.me/.test(href) ? 'telegram'
+             : /youtube\.com|youtu\.be/.test(href) ? 'youtube'
+             : /facebook\.com\/groups/.test(href) ? 'facebook_group'
+             : /facebook\.com/.test(href) ? 'facebook'
+             : 'other';
+      track('contact_click', { channel: ch, link_url: href, label: labelOf(a) });
+      return;
+    }
+
+    // --- Order CTAs ---
+    if (a.classList.contains('mobile-cta')) { track('cta_click', { cta: 'order', placement: 'sticky_mobile' }); return; }
+    if (a.closest('.hero-cta')) {
+      track('cta_click', { cta: a.classList.contains('btn-ghost') ? 'view_work' : 'order', placement: 'hero' });
+      return;
+    }
+    if (a.closest('.work-category-cta')) {
+      var cat = a.closest('.work-category');
+      track('cta_click', { cta: 'order', placement: 'category', category: cat ? (cat.id || '') : '' });
+      return;
+    }
+    if (a.classList.contains('gallery-cta')) { track('cta_click', { cta: 'facebook_albums', placement: 'gallery' }); return; }
+    if (a.classList.contains('gallery-modal-fb')) { track('cta_click', { cta: 'facebook_albums', placement: 'category_modal' }); return; }
+
+    // --- Work directions ---
+    if (a.classList.contains('work-direction')) { track('direction_click', { target: href, label: labelOf(a) }); return; }
+
+    // --- Gallery categories ---
+    if (a.classList.contains('gallery-category')) {
+      track('gallery_category_open', { category: a.getAttribute('data-gallery') || '', label: labelOf(a) });
+      return;
+    }
+
+    // --- Videos ---
+    if (a.classList.contains('video-tile')) {
+      var src = a.getAttribute('data-mp4') || a.getAttribute('data-yt') || '';
+      track('video_play', { video_type: a.getAttribute('data-yt') ? 'youtube' : 'forging', video_id: src });
+      return;
+    }
+
+    // --- Nav menu ---
+    if (a.closest('nav') && href.charAt(0) === '#') { track('nav_click', { target: href, label: labelOf(a) }); return; }
+
+    // --- Language ---
+    if (a.closest('.lang-switch')) { track('language_switch', { language: labelOf(a).toLowerCase() }); return; }
+  }, true);
+
+  // Product photo opened fullscreen
+  (function(){
+    var _open = openLightbox;
+    openLightbox = function(gallery, idx){
+      try {
+        var it = gallery && gallery[idx || 0];
+        track('photo_view', { image: it && it.src ? it.src.split('/').slice(-2).join('/') : '', alt: (it && it.alt) || '' });
+      } catch(e){}
+      return _open.apply(this, arguments);
+    };
+  })();
+
+  // Scroll depth (25/50/75/100%)
+  (function(){
+    var hits = {};
+    window.addEventListener('scroll', function(){
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h <= 0) return;
+      var pct = Math.round(window.scrollY / h * 100);
+      [25,50,75,100].forEach(function(m){
+        if (pct >= m && !hits[m]) { hits[m] = 1; track('scroll_depth', { percent: m }); }
+      });
+    }, { passive: true });
+  })();
+
   // Nav background on scroll
   const navEl = document.querySelector('nav');
   if (navEl) {
