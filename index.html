@@ -56,6 +56,7 @@
   "image": "https://knifeviy.com.ua/og-image.jpg",
   "logo": "https://knifeviy.com.ua/apple-touch-icon.png",
   "telephone": "+380964057181",
+  "hasMap": "https://maps.app.goo.gl/kRhEASMHhoHWJUeA8",
   "priceRange": "$$",
   "areaServed": ["UA", "PL", "Worldwide"],
   "founder": {
@@ -2157,6 +2158,33 @@ footer {
     #swords{padding-bottom:2.5rem !important;}
     #gallery{padding-top:2.5rem !important;}
   }
+
+  /* ===== Contact block v2: primary WhatsApp CTA ===== */
+  .contact-primary{display:flex;align-items:center;justify-content:center;gap:0.7rem;
+    width:100%;padding:1.15rem 1.5rem;margin-top:0.25rem;text-decoration:none;
+    background:linear-gradient(135deg,#c08a52 0%,#a87a4a 50%,#8a6038 100%);
+    color:#140d03;border-radius:4px;font-weight:700;font-size:0.98rem;
+    letter-spacing:0.08em;text-transform:uppercase;
+    box-shadow:0 10px 30px -10px rgba(0,0,0,0.65);
+    transition:transform var(--transition),box-shadow var(--transition);}
+  .contact-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(0,0,0,0.75);}
+  .contact-primary svg{width:22px;height:22px;flex:0 0 auto;}
+  .contact-primary .cp-arrow{font-weight:400;}
+  .contact-promise{margin:0.85rem 0 1.6rem;font-size:0.87rem;line-height:1.55;color:#b3ac9e;}
+  .contact-secondary .contact-link{padding:0.8rem 0.95rem;}
+  .contact-secondary .contact-link svg{width:18px;height:18px;}
+  .contact-secondary .label-main{font-size:0.88rem;}
+  @media (max-width:600px){
+    .contact-primary{padding:1.05rem 1rem;font-size:0.9rem;letter-spacing:0.05em;}
+    .contact-promise{font-size:0.82rem;}
+  }
+
+  /* ===== Language switch: make it visible ===== */
+  .lang-switch{gap:0.15rem;}
+  .lang-switch button{color:#9a948a !important;font-size:0.78rem !important;font-weight:600 !important;
+    border-radius:3px;padding:0.3rem 0.55rem !important;}
+  .lang-switch button:hover{color:var(--text) !important;background:rgba(255,255,255,0.06);}
+  .lang-switch button.active{color:#140d03 !important;background:var(--ember);}
 </style>
 </head>
 <body>
@@ -3124,9 +3152,16 @@ footer {
     <div class="connect-block">
       <div class="label" data-i18n="contact_label">Зв'язатись</div>
       <h3 data-i18n="contact_title">Написати <strong>майстру</strong></h3>
-      <p class="connect-sub" data-i18n="contact_sub">Найшвидше — у WhatsApp. Можна писати українською, польською, англійською або російською.</p>
+      <p class="connect-sub" data-i18n="contact_sub">Напишіть, який виріб цікавить — зорієнтую по ціні та терміну. Можна писати українською, польською, англійською або російською.</p>
 
-      <div class="contact-links">
+      <a href="https://wa.me/380964057181" target="_blank" rel="noopener" class="contact-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+        <span data-i18n="contact_wa_main">Написати у WhatsApp</span>
+        <span class="cp-arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="contact-promise" data-i18n="contact_promise">Відповідаю протягом 1–3 днів. Консультація безкоштовна, ні до чого не зобов'язує.</p>
+
+      <div class="contact-links contact-secondary">
         <a href="tel:+380964057181" class="contact-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span class="text">
@@ -3134,11 +3169,11 @@ footer {
             <span class="label-main" data-i18n="contact_phone_num">+380 96 405 71 81</span>
           </span>
         </a>
-        <a href="https://wa.me/380964057181" target="_blank" class="contact-link">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+        <a href="https://maps.app.goo.gl/kRhEASMHhoHWJUeA8" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span class="text">
-            <span class="label-small" data-i18n="contact_wa_label">Написати</span>
-            <span class="label-main">WhatsApp</span>
+            <span class="label-small" data-i18n="contact_map_label">Ми на карті</span>
+            <span class="label-main">Google Maps</span>
           </span>
         </a>
         <a href="https://www.facebook.com/AndrzejStruniewicz" target="_blank" class="contact-link">
@@ -3323,7 +3358,7 @@ document.addEventListener("DOMContentLoaded", function() {
       follow_sub: "Нові роботи, процес кування, авторські вироби — публікую регулярно.",
       follow_tg_label: "Канал", follow_fbg_label: "Група", follow_fbp_label: "Сторінка кузні", follow_yt_label: "Канал",
       contact_label: "Зв'язатись", contact_title: "Написати <strong>майстру</strong>",
-      contact_sub: "Найшвидше — у WhatsApp. Можна писати українською, польською, англійською або російською.",
+      contact_sub: "Напишіть, який виріб цікавить — зорієнтую по ціні та терміну. Можна писати українською, польською, англійською або російською.",
       contact_phone_label: "Телефон", contact_phone_num: "+380 96 405 71 81",
       contact_wa_label: "Написати", contact_fb_label: "Особиста сторінка",
       footer_text: "Кузня VIY. Ножі, шаблі, мечі та сокири ручної роботи з булатної та дамаської сталі.",
@@ -3403,7 +3438,7 @@ document.addEventListener("DOMContentLoaded", function() {
       follow_sub: "Nowe prace, proces kucia, wyroby autorskie — publikuję regularnie.",
       follow_tg_label: "Kanał", follow_fbg_label: "Grupa", follow_fbp_label: "Strona kuźni", follow_yt_label: "Kanał",
       contact_label: "Kontakt", contact_title: "Napisz do <strong>mistrza</strong>",
-      contact_sub: "Najszybciej — na WhatsApp. Można pisać po polsku, ukraińsku, angielsku lub rosyjsku.",
+      contact_sub: "Napisz, który wyrób Cię interesuje — zorientuję Cię w cenie i terminie. Można pisać po polsku, ukraińsku, angielsku lub rosyjsku.",
       contact_phone_label: "Telefon", contact_phone_num: "+380 96 405 71 81",
       contact_wa_label: "Napisz", contact_fb_label: "Strona osobista",
       footer_text: "Kuźnia VIY. Noże, szable, miecze i topory ręcznej roboty ze stali damasceńskiej i bułatu.",
@@ -3483,7 +3518,7 @@ document.addEventListener("DOMContentLoaded", function() {
       follow_sub: "New pieces, forging process, original works — published regularly.",
       follow_tg_label: "Channel", follow_fbg_label: "Group", follow_fbp_label: "Forge page", follow_yt_label: "Channel",
       contact_label: "Contact", contact_title: "Write to the <strong>master</strong>",
-      contact_sub: "WhatsApp is the fastest way. You can write in English, Ukrainian, Polish, or Russian.",
+      contact_sub: "Tell me which piece you are interested in and I will give you a price and a lead time. You can write in English, Ukrainian, Polish or Russian.",
       contact_phone_label: "Phone", contact_phone_num: "+380 96 405 71 81",
       contact_wa_label: "Message", contact_fb_label: "Personal page",
       footer_text: "VIY forge. Knives, sabres, swords and axes — hand-forged from Damascus and bulat steel.",
@@ -3954,6 +3989,11 @@ document.addEventListener("DOMContentLoaded", function() {
   Object.assign(translations.ua, { pc230: "Шарів у пакеті", pc231: "Візерунок", pc232: "Леза", pc233: "Шкіра", pc234: "Бутероль", pc235: "Sword of the king", pc236: "Дамаск (багатошарова)", pc237: "близько 250", pc238: "«Ялинка»", pc239: "Приварні · вуглецева інструментальна сталь", pc240: "750 мм", pc241: "46 мм", pc242: "5,5 мм", pc243: "Художнє литво, латунь", pc244: "Дерево (ламінат дуб+ясень)", pc245: "1 мм, прошита", pc246: "Латунь" });
   Object.assign(translations.pl, { pc230: "Warstw w pakiecie", pc231: "Wzór", pc232: "Ostrza", pc233: "Skóra", pc234: "Trzewik", pc235: "Sword of the king", pc236: "Damast (wielowarstwowa)", pc237: "około 250", pc238: "„Jodełka”", pc239: "Dospawane · węglowa stal narzędziowa", pc240: "750 mm", pc241: "46 mm", pc242: "5,5 mm", pc243: "Odlew artystyczny, mosiądz", pc244: "Drewno (laminat dąb+jesion)", pc245: "1 mm, przeszywana", pc246: "Mosiądz" });
   Object.assign(translations.en, { pc230: "Layers in the billet", pc231: "Pattern", pc232: "Edges", pc233: "Leather", pc234: "Chape", pc235: "Sword of the king", pc236: "Damascus (multilayer)", pc237: "about 250", pc238: "Herringbone", pc239: "Welded-on · carbon tool steel", pc240: "750 mm", pc241: "46 mm", pc242: "5.5 mm", pc243: "Art casting, brass", pc244: "Wood (oak + ash laminate)", pc245: "1 mm, stitched", pc246: "Brass" });
+
+  // --- Contact block v2 ---
+  Object.assign(translations.ua, { contact_wa_main: "Написати у WhatsApp", contact_promise: "Відповідаю протягом 1–3 днів. Консультація безкоштовна, ні до чого не зобов'язує.", contact_map_label: "Ми на карті" });
+  Object.assign(translations.pl, { contact_wa_main: "Napisz na WhatsApp", contact_promise: "Odpowiadam w ciągu 1–3 dni. Konsultacja jest bezpłatna i do niczego nie zobowiązuje.", contact_map_label: "Na mapie" });
+  Object.assign(translations.en, { contact_wa_main: "Message on WhatsApp", contact_promise: "I reply within 1–3 days. The consultation is free and commits you to nothing.", contact_map_label: "Find us on the map" });
 
   function setLang(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
