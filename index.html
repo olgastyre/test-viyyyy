@@ -2096,7 +2096,7 @@ footer {
 
   /* ===== Compact video tiles + modal ===== */
   .video-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin:1.5rem 0 3rem;}
-  .gallery-videos.video-tiles{grid-template-columns:repeat(2,1fr);max-width:560px;}
+  .gallery-videos.video-tiles{grid-template-columns:repeat(4,1fr);max-width:1040px;}
   .video-tile{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;overflow:hidden;
     border:1px solid var(--line);border-radius:3px;background:#0a0a0a;cursor:pointer;
     transition:border-color var(--transition),transform var(--transition);}
@@ -2874,7 +2874,7 @@ footer {
       <div class="section-head-row">
         <div>
           <div class="eyebrow"><span data-i18n="gallery_label">Портфоліо</span></div>
-          <h2 data-i18n="gallery_title">Усі <strong>роботи</strong></h2>
+          <h2 data-i18n="gallery_title">Усі <strong>роботи</strong> та процес виготовлення</h2>
         </div>
         <p class="section-intro" data-i18n="gallery_intro">Архів робіт майстра — оберіть категорію й перегляньте фото прямо на сайті.</p>
       </div>
@@ -2883,6 +2883,8 @@ footer {
     <div class="video-tiles gallery-videos">
       <button type="button" class="video-tile" data-yt="8X9kN_moHIQ" aria-label="Відео на YouTube"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/8X9kN_moHIQ/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="video-play" aria-hidden="true"></span></button>
       <button type="button" class="video-tile" data-yt="r-lYpc8rdLU" aria-label="Відео на YouTube"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/r-lYpc8rdLU/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="video-play" aria-hidden="true"></span></button>
+      <button type="button" class="video-tile" data-yt="hMuG1NaTU10" aria-label="Відео на YouTube"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/hMuG1NaTU10/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="video-play" aria-hidden="true"></span></button>
+      <button type="button" class="video-tile" data-yt="z3Kv3gIVs3g" aria-label="Відео на YouTube"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/z3Kv3gIVs3g/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="video-play" aria-hidden="true"></span></button>
     </div>
 
     <a href="https://www.facebook.com/blacksmithviy/photos_albums" target="_blank" rel="noopener" class="gallery-cta">
@@ -3294,7 +3296,7 @@ document.addEventListener("DOMContentLoaded", function() {
       price_individual: "індивідуально", price_by_request: "за запитом",
       cta_order: "Замовити", cta_discuss: "Обговорити", cta_follow: "Стежити",
       gallery_label: "Портфоліо",
-      gallery_title: "Усі <strong>роботи</strong>",
+      gallery_title: "Усі <strong>роботи</strong> та процес виготовлення",
       gallery_intro: "Архів робіт майстра — оберіть категорію й перегляньте фото прямо на сайті.",
       gallery_cta_label: "Альбоми робіт",
       gallery_cta_title: "Дивитись усю <strong>галерею</strong>",
@@ -3374,7 +3376,7 @@ document.addEventListener("DOMContentLoaded", function() {
       price_individual: "indywidualnie", price_by_request: "na zapytanie",
       cta_order: "Zamów", cta_discuss: "Omów", cta_follow: "Śledź",
       gallery_label: "Portfolio",
-      gallery_title: "Wszystkie <strong>prace</strong>",
+      gallery_title: "Wszystkie <strong>prace</strong> i proces wytwarzania",
       gallery_intro: "Archiwum prac mistrza — wybierz kategorię i obejrzyj zdjęcia bezpośrednio na stronie.",
       gallery_cta_label: "Albumy prac",
       gallery_cta_title: "Zobacz całą <strong>galerię</strong>",
@@ -3454,7 +3456,7 @@ document.addEventListener("DOMContentLoaded", function() {
       price_individual: "individual", price_by_request: "on request",
       cta_order: "Order", cta_discuss: "Discuss", cta_follow: "Follow",
       gallery_label: "Portfolio",
-      gallery_title: "All <strong>work</strong>",
+      gallery_title: "All <strong>work</strong> and the making process",
       gallery_intro: "The master's archive — pick a category and browse the photos right here on the site.",
       gallery_cta_label: "Album archive",
       gallery_cta_title: "View the full <strong>gallery</strong>",
