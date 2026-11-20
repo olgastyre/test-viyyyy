@@ -2137,7 +2137,7 @@ footer {
   .work-direction:hover span:last-child{color:var(--ember);}
 
   /* anchor offset under fixed nav */
-  #ready,#tomake,#gallery,#connect{scroll-margin-top:70px;}
+  #work,#ready,#tomake,#gallery,#connect,#swords-products,#about,#process{scroll-margin-top:70px;}
 
   /* ===== Mobile: About block tidy-up ===== */
   @media (max-width:768px){
@@ -2219,7 +2219,7 @@ footer {
   <div class="nav-links" id="navLinks">
     <a href="#about" data-i18n="nav_about">Майстер</a>
     <a href="#work" data-i18n="nav_work">Роботи</a>
-    <a href="#swords" data-i18n="nav_swords">Мечі</a>
+    <a href="#swords-products" data-i18n="nav_swords">Мечі</a>
     <a href="#gallery" data-i18n="nav_gallery">Галерея</a>
     <a href="#process" data-i18n="nav_process">Замовлення</a>
     <a href="#connect" data-i18n="nav_contact">Контакти</a>
@@ -2744,7 +2744,7 @@ footer {
         </div>
       </div>
 
-      <div class="subcategory">
+      <div class="subcategory" id="swords-products">
         <div class="subcategory-label" data-i18n="swords_subcat">Мечі власного виробництва</div>
         <div class="product-grid">
         <div class="product-card">
@@ -4440,6 +4440,39 @@ document.addEventListener("DOMContentLoaded", function() {
         if (pct >= m && !hits[m]) { hits[m] = 1; track('scroll_depth', { percent: m }); }
       });
     }, { passive: true });
+  })();
+
+  // ===== Keep in-page anchors on target (lazy images shift layout mid-scroll) =====
+  (function(){
+    var timer=null, cancelled=false;
+    function cancel(){ cancelled=true; if(timer){clearTimeout(timer); timer=null;} }
+    ['wheel','touchstart','keydown'].forEach(function(ev){
+      window.addEventListener(ev, cancel, {passive:true});
+    });
+    function settleTo(el){
+      cancelled=false;
+      var tries=0;
+      function tick(){
+        if(cancelled) return;
+        var off=parseInt(getComputedStyle(el).scrollMarginTop,10)||0;
+        var top=el.getBoundingClientRect().top;
+        if(Math.abs(top-off)>8 && tries<12){
+          window.scrollTo(0, window.scrollY + top - off);
+          tries++;
+          timer=setTimeout(tick,180);
+        }
+      }
+      timer=setTimeout(tick,700);
+    }
+    document.addEventListener('click', function(e){
+      var a=e.target.closest('a[href^="#"]');
+      if(!a) return;
+      var h=a.getAttribute('href');
+      if(!h || h.length<2) return;
+      var el;
+      try { el=document.querySelector(h); } catch(err){ return; }
+      if(el) settleTo(el);
+    }, true);
   })();
 
   // Nav background on scroll
